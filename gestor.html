@@ -1,0 +1,1527 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIDÃO MOTOS | Gestor 360 — Pátio, Oficina & Pós-Venda</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Placa Mercosul RJ Oficial */
+    .mercosul-plate {
+      background: linear-gradient(to bottom, #1E40AF 0%, #1E40AF 28%, #FFFFFF 28%, #F8FAFC 100%);
+      color: #0F172A;
+      border: 2px solid #0F172A;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .mercosul-plate::before {
+      content: 'BRASIL • RJ';
+      display: block;
+      width: 100%;
+      font-size: 7px;
+      line-height: 10px;
+      color: #FFFFFF;
+      text-align: center;
+      letter-spacing: 1px;
+      font-weight: 800;
+      padding: 0 5px;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-slide-right {
+      animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900">
+
+  <!-- =========================================================
+       CABEÇALHO LIMPO (FUNDO BRANCO + LOGO OFICIAL CIDÃO MOTOS)
+       ========================================================= -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="h-1 w-full bg-gradient-to-r from-amber-400 via-emerald-500 to-blue-600"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      
+      <!-- Logo Oficial Cidão Motos + Nome do Sistema -->
+      <div class="flex items-center gap-4">
+        <div class="h-14 w-20 rounded-xl overflow-hidden bg-[#181B20] border-2 border-amber-400 flex items-center justify-center shrink-0 shadow-md">
+          <img src="data:image/jpeg;base64,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" alt="Logo Cidão Motos" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-wider bg-amber-400 text-slate-950 rounded-md">
+              FÁBRICA DE SONHOS
+            </span>
+            <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600"></i> Taquara, RJ • @cidaomotosoficial
+            </span>
+          </div>
+          <h1 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight mt-0.5">
+            CIDÃO MOTOS <span class="text-slate-300 font-light">|</span> <span class="text-slate-700">Gestor 360 — Pátio, Oficina & Pós-Venda</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Navegação em 3 Abas Limpas -->
+      <nav class="flex flex-wrap sm:flex-nowrap items-center bg-slate-100 p-1.5 rounded-2xl border border-slate-200 gap-1">
+        <button id="tab-btn-patio" onclick="switchTab('patio')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-2 bg-white text-slate-900 shadow-sm border border-slate-200/80">
+          <i data-lucide="dollar-sign" class="w-4 h-4 text-emerald-600"></i>
+          <span>1. Pátio & Lucro por Placa</span>
+        </button>
+        <button id="tab-btn-esteira" onclick="switchTab('esteira')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="wrench" class="w-4 h-4 text-amber-500"></i>
+          <span>2. Esteira "Fábrica de Sonhos"</span>
+        </button>
+        <button id="tab-btn-posvenda" onclick="switchTab('posvenda')" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="repeat" class="w-4 h-4 text-blue-600"></i>
+          <span>3. Retorno Oficina & Upgrade</span>
+        </button>
+      </nav>
+
+      <!-- Botões de Ação -->
+      <div class="flex items-center gap-2 self-end lg:self-auto">
+        <button onclick="openNewBikeModal()" class="px-3.5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4 text-amber-400"></i>
+          Entrada de Moto
+        </button>
+        <button onclick="resetDemoData()" title="Restaurar dados iniciais" class="p-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-500 border border-slate-200 transition">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       CONTEÚDO PRINCIPAL
+       ========================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-7">
+
+    <!-- =======================================================
+         ABA 1: RAIO-X DE LUCRO REAL POR PLACA (PAINEL COM FOTOS)
+         ======================================================= -->
+    <section id="tab-content-patio" class="space-y-6">
+
+      <!-- 4 Cards de KPIs Limpos em Fundo Branco -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div onclick="setPatioFilter('all')" class="cursor-pointer bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:border-blue-400 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Motos no Pátio</span>
+            <span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <i data-lucide="bike" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div id="kpi-motos-patio" class="text-3xl font-extrabold font-mono text-slate-900 mt-2">24</div>
+          <div class="text-xs text-slate-500 mt-1 font-medium">19 prontas no salão • 5 na oficina</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Capital Imobilizado</span>
+            <span class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center">
+              <i data-lucide="wallet" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div id="kpi-capital-imobilizado" class="text-3xl font-extrabold font-mono text-slate-900 mt-2">R$ 342.000</div>
+          <div id="kpi-oficina-acumulada" class="text-xs text-slate-500 mt-1 font-medium">Aquisição + R$ 14.820 em oficina</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border-2 border-emerald-500/40 shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-700">Lucro Líquido Médio / Moto</span>
+            <span class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div id="kpi-lucro-medio" class="text-3xl font-extrabold font-mono text-emerald-600 mt-2">R$ 2.840</div>
+          <div class="text-xs text-emerald-700 mt-1 font-semibold">Livre de Oficina, Doc & Taxas</div>
+        </div>
+
+        <div onclick="setPatioFilter('giro')" class="cursor-pointer bg-white rounded-2xl p-5 border-2 border-amber-400/60 shadow-sm hover:border-amber-500 transition">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-700">Alerta de Giro (&gt;45 dias)</span>
+            <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+              <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div id="kpi-alerta-giro" class="text-3xl font-extrabold font-mono text-amber-600 mt-2">3 motos</div>
+          <div class="text-xs text-amber-700 mt-1 font-semibold underline">Clique para filtrar paradas</div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Filtros Limpa -->
+      <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-900">Painel de Motos no Pátio — Raio-X por Placa</h2>
+          <p class="text-xs text-slate-500">Clique em qualquer moto para abrir o <strong>Dossiê Financeiro da Placa</strong> e adicionar peças da oficina ao vivo.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input id="search-patio" oninput="renderPatioBikes()" type="text" placeholder="Placa ou modelo..." class="pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 w-44 sm:w-52" />
+          </div>
+
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200 text-xs">
+            <button onclick="setPatioFilter('all')" id="filter-btn-all" class="px-3 py-1.5 rounded-lg font-bold bg-white text-slate-900 shadow-sm transition">Todas</button>
+            <button onclick="setPatioFilter('pronta')" id="filter-btn-pronta" class="px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition">Prontas</button>
+            <button onclick="setPatioFilter('oficina')" id="filter-btn-oficina" class="px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition">Na Oficina</button>
+            <button onclick="setPatioFilter('giro')" id="filter-btn-giro" class="px-3 py-1.5 rounded-lg font-bold text-amber-700 hover:text-amber-900 transition">&gt;45 Dias</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID DE CARDS VISUAIS COM FOTOS REAIS DAS MOTOS E PLACAS RJ -->
+      <div id="patio-bikes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Renderizado via JS -->
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         ABA 2: ESTEIRA DE ENTREGA "FÁBRICA DE SONHOS"
+         ======================================================= -->
+    <section id="tab-content-esteira" class="hidden space-y-6">
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-600">Padrão @cidaomotosoficial</span>
+          <h2 class="text-lg font-extrabold text-slate-900">Esteira de Preparação & Entrega — "Fábrica de Sonhos"</h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Controle visual das motos vendidas até a entrega. Clique no botão verde de cada moto para avançar de etapa e avisar o cliente no WhatsApp.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold shrink-0">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          WhatsApp Automático Ativo
+        </div>
+      </div>
+
+      <!-- 3 Colunas Kanban com Fotos das Motos e Placas -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+        
+        <!-- Etapa 1 -->
+        <div class="bg-slate-100/90 rounded-2xl p-4 border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between pb-2.5 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-amber-500 text-white font-mono text-xs font-extrabold flex items-center justify-center">1</span>
+              <div>
+                <h3 class="text-xs font-extrabold uppercase text-slate-800">Em Revisão na Oficina</h3>
+                <p class="text-[11px] text-slate-500">Checklist 25 itens</p>
+              </div>
+            </div>
+            <span id="count-stage-1" class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-lg bg-white border border-slate-200 text-slate-700">2</span>
+          </div>
+          <div id="kanban-stage-1" class="space-y-4"></div>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="bg-slate-100/90 rounded-2xl p-4 border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between pb-2.5 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-mono text-xs font-extrabold flex items-center justify-center">2</span>
+              <div>
+                <h3 class="text-xs font-extrabold uppercase text-slate-800">Documentação / DETRAN-RJ</h3>
+                <p class="text-[11px] text-slate-500">Vistoria, ATPV-e e Contrato</p>
+              </div>
+            </div>
+            <span id="count-stage-2" class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-lg bg-white border border-slate-200 text-slate-700">2</span>
+          </div>
+          <div id="kanban-stage-2" class="space-y-4"></div>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="bg-slate-100/90 rounded-2xl p-4 border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between pb-2.5 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-mono text-xs font-extrabold flex items-center justify-center">3</span>
+              <div>
+                <h3 class="text-xs font-extrabold uppercase text-slate-800">Lavagem + Vídeo do Sonho</h3>
+                <p class="text-[11px] text-slate-500">Pronta para entrega no salão</p>
+              </div>
+            </div>
+            <span id="count-stage-3" class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-lg bg-white border border-slate-200 text-slate-700">2</span>
+          </div>
+          <div id="kanban-stage-3" class="space-y-4"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         ABA 3: MÁQUINA DE RETORNO PRA OFICINA & UPGRADE
+         ======================================================= -->
+    <section id="tab-content-posvenda" class="hidden space-y-6">
+
+      <!-- Cabeçalho Pós-Venda + Botão Simular Disparo -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-blue-600">Receita Recorrente na Oficina Própria</span>
+          <h2 class="text-lg font-extrabold text-slate-900">Máquina de Retorno pra Oficina & Upgrade (Pós-Venda Automático)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Chama o comprador de volta automaticamente após 30, 90, 180 e 365 dias para gastar na oficina própria ou trocar de moto.
+          </p>
+        </div>
+
+        <button onclick="simulateWeeklyDispatch()" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md transition shrink-0">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          Simular Disparo da Semana
+        </button>
+      </div>
+
+      <!-- Banner Resultado Simulação -->
+      <div id="simulation-result-banner" class="hidden bg-emerald-50 border-2 border-emerald-400 rounded-2xl p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4 animate-pop">
+        <div class="flex items-center gap-3.5">
+          <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+            <i data-lucide="check-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-extrabold uppercase text-emerald-700">Disparo da Semana Concluído</span>
+            <h3 class="text-base sm:text-lg font-extrabold text-slate-900">14 clientes agendaram revisão na Oficina Cidão Motos + 2 simulações de Upgrade!</h3>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-center">
+            <div class="text-[10px] uppercase font-bold text-slate-500">Motos Agendadas</div>
+            <div class="text-xl font-extrabold font-mono text-slate-900">14</div>
+          </div>
+          <div class="bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-center">
+            <div class="text-[10px] uppercase font-bold text-emerald-700">Receita Extra Oficina</div>
+            <div class="text-xl font-extrabold font-mono text-emerald-600">+ R$ 4.860</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Cards de Réguas Automáticas -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div onclick="setPosVendaFilter(30)" class="cursor-pointer bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:border-emerald-500 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono text-xs font-extrabold">30 DIAS</span>
+            <span class="text-xs font-bold text-emerald-600">Ativa no WhatsApp</span>
+          </div>
+          <h3 class="text-sm font-extrabold text-slate-900">Check-up de Garantia / Primeiros 1.000 km</h3>
+          <p class="text-xs text-slate-500 mt-1">Confere relação, freios e faz a 1ª troca de óleo na oficina da loja.</p>
+        </div>
+
+        <div onclick="setPosVendaFilter(90)" class="cursor-pointer bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:border-amber-500 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 font-mono text-xs font-extrabold">90 & 180 DIAS</span>
+            <span class="text-xs font-bold text-emerald-600">Ativa no WhatsApp</span>
+          </div>
+          <h3 class="text-sm font-extrabold text-slate-900">Hora de Trocar o Óleo e Revisar na Oficina</h3>
+          <p class="text-xs text-slate-500 mt-1">Envia cupom de check-up grátis na compra do óleo, filtro ou relação.</p>
+        </div>
+
+        <div onclick="setPosVendaFilter(365)" class="cursor-pointer bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:border-blue-500 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200 font-mono text-xs font-extrabold">365 DIAS</span>
+            <span class="text-xs font-bold text-emerald-600">Ativa no WhatsApp</span>
+          </div>
+          <h3 class="text-sm font-extrabold text-slate-900">Aniversário do Sonho — Simulação de Upgrade</h3>
+          <p class="text-xs text-slate-500 mt-1">Sua moto atual entra como entrada numa mais nova do pátio.</p>
+        </div>
+      </div>
+
+      <!-- Lista de Clientes Pós-Venda com Fotos das Motos e Placas -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="p-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h3 class="text-sm font-extrabold text-slate-900">Clientes Elegíveis para Retorno à Oficina & Upgrade</h3>
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200 text-xs">
+            <button onclick="setPosVendaFilter('all')" id="pv-btn-all" class="px-3 py-1 rounded-lg font-bold bg-white text-slate-900 shadow-sm">Todos</button>
+            <button onclick="setPosVendaFilter(30)" id="pv-btn-30" class="px-3 py-1 rounded-lg font-semibold text-slate-600">30 dias</button>
+            <button onclick="setPosVendaFilter(90)" id="pv-btn-90" class="px-3 py-1 rounded-lg font-semibold text-slate-600">90/180 dias</button>
+            <button onclick="setPosVendaFilter(365)" id="pv-btn-365" class="px-3 py-1 rounded-lg font-semibold text-slate-600">365 dias</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                <th class="py-3.5 px-5">Cliente</th>
+                <th class="py-3.5 px-5">Moto & Placa</th>
+                <th class="py-3.5 px-5">Ciclo</th>
+                <th class="py-3.5 px-5">Régua Automática</th>
+                <th class="py-3.5 px-5 text-right">Potencial Oficina</th>
+                <th class="py-3.5 px-5">Status</th>
+                <th class="py-3.5 px-5 text-right">Ação</th>
+              </tr>
+            </thead>
+            <tbody id="posvenda-table-body" class="divide-y divide-slate-100 text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       DRAWER LATERAL: DOSSIÊ FINANCEIRO DA PLACA (COM FOTO E PLACA)
+       ========================================================= -->
+  <div id="dossier-modal" class="fixed inset-0 z-50 hidden">
+    <div onclick="closeDossierModal()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-[2px]"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-8">
+      <div class="w-screen max-w-xl bg-white border-l border-slate-200 shadow-2xl flex flex-col justify-between overflow-y-auto animate-slide-right">
+        
+        <div>
+          <!-- Foto da Moto no Topo do Dossiê + Placa Mercosul + Logo Cidão -->
+          <div class="relative h-52 w-full bg-slate-900 overflow-hidden">
+            <img id="dossier-photo" src="" alt="Foto da Moto" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+
+            <!-- Logo Oficial Cidão Motos no Topo Esquerdo -->
+            <div class="absolute top-3.5 left-4 flex items-center gap-2 bg-slate-950/85 backdrop-blur-md p-1.5 pr-3 rounded-xl border border-amber-400/50">
+              <img src="data:image/jpeg;base64,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" alt="Cidão Motos" class="w-11 h-8 object-cover rounded-lg" />
+              <span class="text-[11px] font-bold text-white">Dossiê da Placa</span>
+            </div>
+
+            <button onclick="closeDossierModal()" class="absolute top-3.5 right-4 p-2 rounded-xl bg-white/90 hover:bg-white text-slate-900 shadow transition">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-3">
+              <div>
+                <h3 id="dossier-title" class="text-xl font-extrabold text-white drop-shadow">Honda XRE 300 ABS 2022</h3>
+                <p id="dossier-subtitle" class="text-xs text-slate-200">21.400 km • 12 dias no pátio</p>
+              </div>
+              <div id="dossier-plate" class="mercosul-plate px-3 py-1 text-sm shrink-0">RJM-4B22</div>
+            </div>
+          </div>
+
+          <!-- Corpo Limpo do Dossiê -->
+          <div class="p-6 space-y-5">
+
+            <!-- (+) Valor de Venda -->
+            <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+              <div>
+                <div class="text-sm font-extrabold text-slate-900">(+) Valor de Venda</div>
+                <div class="text-xs text-slate-500">Valor anunciado no pátio</div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-slate-400 font-mono font-bold">R$</span>
+                <input id="dossier-input-sale" type="number" step="100" onchange="updateBikeFinancialsFromInput()" class="w-28 text-right font-mono font-extrabold text-base bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-slate-900 focus:outline-none focus:border-blue-500" />
+              </div>
+            </div>
+
+            <!-- (-) Custo de Aquisição -->
+            <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+              <div>
+                <div class="text-sm font-semibold text-slate-700">(-) Custo de Aquisição / Entrada na Troca</div>
+                <div class="text-xs text-slate-500">Valor pago na compra ou troca</div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-slate-400 font-mono">R$</span>
+                <input id="dossier-input-cost" type="number" step="100" onchange="updateBikeFinancialsFromInput()" class="w-28 text-right font-mono font-bold text-sm bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-slate-700 focus:outline-none focus:border-blue-500" />
+              </div>
+            </div>
+
+            <!-- (-) Custos na Oficina Própria -->
+            <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-sm font-extrabold text-slate-900 flex items-center gap-2">
+                    (-) Custos na Oficina Própria
+                    <span id="dossier-workshop-count" class="px-2 py-0.5 text-[11px] rounded-md bg-amber-200/70 text-amber-900 font-mono">4 itens</span>
+                  </div>
+                  <div class="text-xs text-slate-600">Peças e revisão descontadas desta placa</div>
+                </div>
+                <span id="dossier-workshop-total" class="font-mono font-extrabold text-base text-amber-700">- R$ 680</span>
+              </div>
+
+              <div id="dossier-workshop-items" class="space-y-1.5"></div>
+
+              <!-- Adicionar Item de Oficina Ao Vivo -->
+              <div class="pt-3 border-t border-amber-200/80 space-y-2">
+                <div class="text-xs font-bold text-amber-900">Lançar novo item de oficina ao vivo (recalcula na hora):</div>
+                <div class="flex flex-wrap gap-1.5">
+                  <button onclick="quickAddWorkshopItem('Pastilha de Freio', 65)" class="px-2.5 py-1 rounded-lg bg-white hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition">+ Pastilha (R$ 65)</button>
+                  <button onclick="quickAddWorkshopItem('Bateria Moura', 180)" class="px-2.5 py-1 rounded-lg bg-white hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition">+ Bateria (R$ 180)</button>
+                  <button onclick="quickAddWorkshopItem('Cabo Embreagem', 45)" class="px-2.5 py-1 rounded-lg bg-white hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-semibold transition">+ Cabo (R$ 45)</button>
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                  <input id="new-ws-item-name" type="text" placeholder="Peça ou serviço..." class="flex-1 bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500" />
+                  <input id="new-ws-item-cost" type="number" placeholder="R$ Valor" class="w-24 bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs font-mono text-slate-900 focus:outline-none focus:border-amber-500" />
+                  <button onclick="addCustomWorkshopItem()" class="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs transition">Adicionar</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- (-) Documentação -->
+            <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+              <div>
+                <div class="text-sm font-semibold text-slate-700">(-) Documentação / Vistoria / Transferência</div>
+                <div class="text-xs text-slate-500">Taxas DETRAN-RJ / Vistoria</div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-slate-400 font-mono">R$</span>
+                <input id="dossier-input-doc" type="number" step="10" onchange="updateBikeFinancialsFromInput()" class="w-24 text-right font-mono font-bold text-sm bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-slate-700 focus:outline-none focus:border-blue-500" />
+              </div>
+            </div>
+
+            <!-- (-) Comissão / Taxa -->
+            <div class="flex items-center justify-between pb-1">
+              <div>
+                <div class="text-sm font-semibold text-slate-700">(-) Comissão / Taxa</div>
+                <div class="text-xs text-slate-500">Comissão de venda</div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-slate-400 font-mono">R$</span>
+                <input id="dossier-input-fee" type="number" step="10" onchange="updateBikeFinancialsFromInput()" class="w-24 text-right font-mono font-bold text-sm bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-slate-700 focus:outline-none focus:border-blue-500" />
+              </div>
+            </div>
+
+            <!-- (=) LUCRO LÍQUIDO REAL NO BOLSO -->
+            <div class="p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-300 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700 block">(=) Resultado Final Limpo</span>
+                <h4 class="text-base font-extrabold text-slate-900">LUCRO LÍQUIDO REAL NO BOLSO</h4>
+              </div>
+              <div class="text-right">
+                <div id="dossier-net-profit" class="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-600">R$ 3.070</div>
+                <div id="dossier-net-margin" class="text-xs font-mono font-bold text-emerald-700">Margem: 16,2%</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Rodapé Dossiê -->
+        <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 sticky bottom-0">
+          <button onclick="sendBikeToDeliveryPipeline()" class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition">
+            <i data-lucide="party-popper" class="w-4 h-4"></i>
+            Marcar Vendida ➔ Enviar p/ Esteira "Fábrica de Sonhos"
+          </button>
+          <button onclick="closeDossierModal()" class="py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-bold text-xs sm:text-sm transition">
+            Fechar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       MODAL WHATSAPP COM A LOGO OFICIAL CIDÃO MOTOS
+       ========================================================= -->
+  <div id="whatsapp-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="closeWhatsAppModal()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-[2px]"></div>
+    <div class="relative z-10 w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden animate-pop">
+      <div class="bg-[#075E54] px-4 py-3.5 flex items-center justify-between text-white">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full overflow-hidden bg-[#181B20] border-2 border-amber-400 shrink-0">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QBaRXhpZgAATU0AKgAAAAgABQMBAAUAAAABAAAASgMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAAOw1ESAAQAAAABAAAOwwAAAAAAAYagAACxj//bAEMAAwICAwICAwMCAwMDAwMEBwUEBAQECQYHBQcKCQsLCgkKCgwNEQ4MDBAMCgoOFA8QERITExMLDhQWFBIWERITEv/bAEMBAwMDBAQECAUFCBIMCgwSEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEv/AABEIAJgAvAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APjOYYc46gDFQEc46Gp5sBj3qHP1qzBjD05pRz1pe3IpP8aAsLjA9valz9etJ3pOvbrQIdvPbI57U4N9KYKPTr9KAJM/5FKrfN1x2/8ArU0DOB/SgKRngYNA7k4fvnge9P3ZPH61ABzwMfQVIB09vai4iTdTxt2ck7vQdqhHIp68Hr1qikiQdKU89M0gPT+VOB7e3GaBjgSRhiWPTJpR06nPem96UcetADhkevPb1pQcnsD9KaOn1pw4wcYoAfij6YoA7EdKTk4zQAoPYU/Oe3603GBTl6cgn6VSAyJuWbr164qH8KkcY69qYTk9azJsMbpRnmlI4603HPvQA7g9KB/XvQOlC8f/AKqBBtzz605UHY8jt60o6kHmlAI+tAC4z2pduOuc0hP86QAEjp9QaAsPIyKcmNwxjNMHbNPU89DkHpQOw4DkU8YJw3FNAxx0pwH/AOo07gmOXkU8E8Y/KmDj/PSngZPGPSmUOzx2pfx/KmjIPPb3qRQScdc0CEGcdaUfMeBgVq+GJ9HtfEFhL4ystQ1LREl/0200+7FtPJGQRmOQggEHBwRg4xkZzX2AP2Ovhh8ZPh5F4j/Z08U6ra3JBHk6xKJk80DJhnG0PC/vyO/I5rws34hwmVyh9auoy+1bRer6HRRw061+Tc+LSM4zjp9KUD171reK/Cmr+BfEl9oHi6wm07V9Nk23FvKOR3DAjhlI5DDgjmsrGD2r2qVWFWCnB3T2Zg007MCvajkelKDzj+dO49M1pchyMRzlfftmmAge9Ofpz355phPYHtgGoGB56U004+3UUmM+9AAOcijOKT+dOxz2/KgQ9Buz3/rTWfy1ckE7RnAHWlUY6fnSjGTgcUhpHZX/AMHfGdp4WtvFFroVzrHhq6Quur6Kw1C2TA5WQxZaJh3WRVIrjYmSVmCsNynDAHJB9D712Xwr+L3i74J+If7Z+HGrzabLLg3VqcvbXqg/dmizhh154YZ4Ir7N8F+P/gh+18E0/wCJPhHRdG8eSrgwhvskt03UtbXSbTIe/lvlh6N1r5POM9xuUXq16DqUusobr1j+qZ20cPCtopWfmfAm3PTnHalC/NxX2t8Sv+CdsUdre3vwg8R3bXMSM9voetqrCZgM+UlyuNrHgDeuM8E96+MrqyudOvbmy1S2uLK/spmhurW5j8uSCVThkdTyGB7V2ZDxRlmd03PB1Oa262a9UZ4jCVaD99EA/wD1U9SCozjJpv3eegpSR+HrX0JzMevPXvW94L8Ga78RfEVtoHgXSrnWNXuslIIAMRoPvSSMSAiDuzED8ad8PvAWufFPxppnhTwVbrcarqjkAyZEdtEvMk8rAfLGg5J78AckV9+P4i+FX7CvgmDw4s82reJr6FZ7yC0RH1HVpMcSzEnbBDnOxWIUDoGOSfkOJ+Jp5dy4bB03VxE/hiunnLsjuwmGVS8pu0Ued+Av+CdkZskm+J/i+ZLuRQWs9AtldIj6GeXO4/7qAe9TeOP+CeNqtg8vwv8AFd69/GuVs9ehRY5z6CaIDYT/ALSkfTrXA+Kv+CgPxC1i5k/4RHSvDnhq0LERiSBtRnx/tO5VM/RMVkaP+3Z8WdNuFkvrjw5q8KnJgu9HWPP/AAKJgRXw9PAeIcqixMq0E9+Tp6bfqeg6mXJcqR4t4i8O6p4O1+/0LxVYXGl6vps3lXdpcDDIeoPoVI5DDIIORXa/Af416n8C/HUOr2LST6LdMsWt6cG+W6tieWUf89E+8p9iOhrvPjT8evBn7R/g2G48U6HJ4M+I/h6EtYX0G65s9UhHLWbsBvQnrGXBCsMbgGNfPqA5GM5r9Gw9OWa5e6OY0eVtWlF6r1T/ACZ5kp+xqc1Jn6R/tSfBSx+PXwxi1/waILvxHpNiL7QruIf8hG1K+YbYnuGU7kz0bjoTX5txsJYw65G4DAxz+PpX6K/sO+M5/EHwMgsbmUvdeEdWm06NjyVgIE0I/ASMPotfK37XPwwT4Y/Ga+bS4RDoniyI6xpqqMLGzti4hH+7Lk49JBX594e5rVwOZYrh7ESv7Ntwfl2+49DM6SqUo4iPXc8S+73p4bHBycUEfMeMfhQFzya/ZTwXuYchycnvTSPenuMgU3GOOlQWhrDB7UmemfTAzSlu1G3p2oC2oDp/k04D6fnTRjnPNKMg9sdqAaFJ9QeKPf8APilzuPzfzpdgxk4HHX0oAFPHSnLhsYyrKQysDgqRyCD2INN2kdcZHtS5wOetRKKkrMadj6s+Af7cWseCltNC+MIvPEmggeXb6qi776zUYB35x9oQZGed445PSvon4mfAD4cftVaPB4r8P6nBFql1CEtPE+jlZPPCjCx3MRI8zaMDDbZF9ccV+fnw+8V6Pp5uPD/xItbjUPB2rSB7h7UD7Zo9xjC39mx6Oo4eM/JKg2kZCsO3vrb4kfsieJ7TUfB3iBRofiKMT6RrmnKJ9K8QQ4yGaJgV8wDrG2HXsSOa/Ks64OhHH/WsqqfV8Q9f7s/kexQxt6fJVXNH8UdD4u/YX+K/hu7ddCsdH8W2q52TabqSQyMPeGcoQfoTWHp/7HPxo1O5WGPwDfWu7gy3l9awxr9WMp/QVt/8N2/GWVMJrXh1P9oeHYMj9a5XxB+1z8X9WiZNT+I2p2MMpwVsUgsAfYFEDfrXr4L/AFxUOWu6WnXX8jKf1J/Dc90E8X7AXwrmgc6Zqfxx+ICEhEYTw6NYoxCOT/Egb5gOBLIf7sZr5BvtQu9Y1K71PXbu51HVNQmae9vblzJLcStyXdjyT+gHAwBior/VLrXtTuNU1i/u9U1C7IM97dztcSykdN0jEk4+vemduOeK+iyjKFhFKtWfPWnrKX6Lsl0XzOOvW5vdWkUPJz1wDT0PAyB+NRZCoWYgKOua+h/2ev2Oda+LmmReK/HF5J4R8B48xLyTatxqEY6tEH+WOP8A6avwf4Q3WuvM81wuW0HWxErL8W+yXVkUqUqjtE+f9ymVExulc4RQuWf2AHJP0rc1bwjr3hyysb7xFoWs6VZ6ozLY3F/YSW6XJUAsELgbiAQeO1ff3hXxt+zV8Ak+yeFdd8HWV9FxLeWzPqd9IfV51V2/Ige1fNX7Wv7TI+OerWeg+ExIPBugXRube6uYSlxqV0UKedhvmjiCsVVeC2SzY4A+UynizG5rjlSo4SUKPWc9PuR3VcFClSu53fZHsf8AwT9tpR8PfGc5Ui3m8RQJG394paLuI+m4Cuz/AGx/hfL8Rvg9JqOlW/na54JmbUraNBlpbYrtuYx77ArgesdeVfsnftHfD/4c/Du38HeMJb/Q9ROpXN3PqU1uZbSdpWAUlkyyYRUX5hjjrX2L4d1bTfEWnxaj4Z1DT9asZOlxZzrPE4PYlSeo4INfi3FVXNco4wlm0aUlHm0dtGtEe7hI0quDVK5+PgZZEDRnIYZBHcUh49fzr0H4/eAYvhb8bvFvhixjaLTra5S701T/AA2twnmxqP8Adyy/8BrgOPb86/qDA4qOKw1OvDaSTXzVz5KceSTi+hgvjdjoBTQ26aKGNWknmcJFEilnlY9FVRyT7AV0ngD4ea78VfGuneFvBkEcup6juYyzErDaQrzJPK3aNB1xyThRyRX6T/BX9nnwj8DtNRvDNlHf6/5P+n+JL6MG6lwPm2E5FvF6KmOPvEnmvkuLeNsFkEFCS56storf59kdmCwEsQ73sj4N8K/smfFzxbbpc2Pgq7061lXKz63dw6eCD0ISRvM/8crfvf2HPjFZRb4tD8PX3+xZ+IbYt+Tla+xvFn7Uvwo8I3Ultq/jjTLu9RiJYNKSTUXUjghmhVlz/wACrJ039sv4Q6lciCTxVc6fnjzb7R7mCIc/xOUIFfnNTjvjOp++pZfaH+GT/wAj1PqGBS5XU1Pz58bfDzxP8NdTjsPiD4f1Tw/dT8w/bYNsc/8A1zkBKP8A8BY10Hwk+AvjT43NrA+HlppU6aGYVvJdQ1JLRQ0ocoq7gdxxGxPpxX1j+3L8WNLf4JaJoHhnVNL1mLx3qaTpPaXCXKLZ2hEjyKVJCky+UmeD94etU/8AgnhY/Z/A3jy96m51yzh3evl2zMR/5Fr6mvxrmNPhWWa1KChVTsou9t7X6PvoccMDTeLVJO6Pmgfs1ePE+Lo+Gr2mi/8ACUjTf7SdTqi/ZVtihbcZsYzjtjuO3Nd3H+wf8WBnzB4LUdAT4gH/AMbr3bwk7ax/wUH+INwx3R6N4Qjts/3SYbNcfm5r1j4m/HfwR8Hr3TrL4haneWVzq0Ek9pHbafJdbo0cIzHZ90ZIHNfMZz4gcQRxeHwuBoqc504zaSbd2rvbojspZfhuWUqjsk7Hxyn7A3xSlPN14GjB7trjn+UNOf8AYA+KkKForrwLMQOIxrcilvbmED8zX0gv7bfwcibI1nxFIfRPDs9Og/bl+D0khWXVvEUHPyySeH58fjgmuSPFvH1rvB/+SS/zL+p5f/N+J8QfEX9n74hfCa2N7468MXdppitt/tS0kS8tAe26WMnZn/bC13P7O/xw0Xw1pl38N/jbaRa38KvEkgMqTAs2iXJ6XMJHKrnltvKn5x/EG/QPwl4y0Hx94dGq+D9Usdf0S/DQu8Y8xH4+eKWNhkHBAKMO9fnz8bPhB4T+E37Rkej+JZrnT/h1qqprSRWcLzzLZHd5tjEo/iMsZhUkgASKSQBmve4d4x/1iVXLsxounXgrq2911XVM5sTglh7VKbvFkX7RP7LetfAm8Gr6LPJ4l+H9+ymx1uJQ7W28ZSO528AkEbZR8jj+6eK6P9jL4ceMPEWreKfEPg2LwRDY2tqmlS3Hi3RH1KGWV2EjJDGpGGCqu5skYZRj0x/jT+1F40/aBnt/B3gvTv8AhGvCuoTwWGneGbAgy35LKsMdxIByoIX92mEGOd2M192fD/wVovwA+EFnpN/dQw6Z4V06S91vUSABLMB5l1Ofq2QvsEFHEnE2bZVklLD14p4uq7RW+l93br6aBhcLSqV3JfCtzwf4h/sd+IvF2kanOF+Ddrqi2sksC+HfB1zp1xPKilljRxPsDMRtyyn73SvhaJ/OhRwpRyMlGGCp7gj1B4r9V/gR8XofjH8ObTxXaQNY3Qvri2ntec28kcmUB9zE0TfUmvz/AP2nvh9/wrX48eKdOtYhFpuqTjWdMCrhRb3WXKj/AHZRKv4Vfh3xXmGKzDE5XmaSqU7NW09RZng6cYRq09mcH4N1jR/D/iCDUfFOgDxNb2SNJb6VLceTbXFwMeX9pIBZoAcsyLgvgLkAmu71LxD8WP2s/FI0931PxTJCAV0mwUW+maZH0XKAiKJQBgNISxxwTXJfDf4dap8V/H2jeEvDe2O71aYiS5cZSzt1G6Wdx6IgJx3OB3r9Tfh/8P8Aw78JvBkXh3wVBHpuj6cjS3M87Kslw4GXubiQ8M5xkseFHAwBXp8e8XYLIpw5aXtcRL4V28/+GMsvwcq+7tFHyT4S/wCCeWqPbRP488ZabpJOC1lotk12yexkcon5KR713cP7AXgKBVW98T+NbhyM71+yxZ/ARmtvx9+3B8NfCF3Na+H/AO1fGl5FlXk0lES13D/p4kwGHbKBh715rc/8FEneXFr8OUMHH+u18hv0hxXwNPEeI+ZRVanBwi9l7q/PU9JrLqbs3c6XUP2APB1zGBo3jHxXZS9mura3uQfwGw/rXmviL9kv4qfBSSTxD8JNdl1dLXMksnh6SS0vUQcktbscSj1ALfSvTvCv7fPgrVLhIfFnhzXvDvmNg3UMkd/FH7kKFcD6KfpX0h4V8S6V4s0W21jwhqdnq2nXJJgvLSbcu4dR6qwPVSARnpXDiuJuMMka/tWlz03vzJNfejSnhsHWX7l2Z+VXjfx9r3xP8Sv4h8c6gup6xJaw2klwLZIC0cIZUDKoALDLZOMk9awiMcEEkelfUf7d3wptPC/ibRfHWgww2tr4rlktNWhjAVft6J5izAdvMjDbv9pM96+YPm/gOBX9AcNZrhcxyujicMrQa0Xby+R83iqMqdVxlufYn7AvgOLTfAmt+MJYg2oeJNSfTYHKcx2trj5QfR5nYnH9xfSvGf2uP2gdV+I3jXWPCGiXs1r4M8P3j2T29vKVXVLiM4llmKn50D7lRD8oC5IJPH1B+xFqET/s8+HRBhm03VtRjmUcfOLnzBn6q618GfF/wPqPwz+KPiXw9rsTRzR6jcXNpNsKrd2ssrSRTp6qQ2D6MCDyK/NuG4YbH8Y4+ritalOygn0Xdfh956uJlKngqahs9zj0PlKFjVVRRwoGAPoKfkbOOv1NRlQ3IwfxppyB3HpxX7FY8WwQQxwyM8SIjPnLBAM1+gv7A1n5PwM1ecfevvFN0f8Av3b26/418F6b4d1bVtJ1jVtK029u9J8PQiXVb6KImGyVmCL5jngEsygLyec4xzX6JfsQacbb9n7Qcj/kI63qU/1BuBGP/RfWvynxbxUI8POEXvOK/U9fKIv6ym+xgfAwf2j+19+0PqAYMtq8NohH/XWND/6Irx7/AIKDXhm+Mvhi1yCtp4RRsHsZbycn9EFes/sgv/bHxP8Aj/rfJjvvFvkKx9BcXb/yxXg/7c1/9v8A2j7yFCG/s7w5pducfwlkklI/8iA14fDdPm44a/590Yr/AMlj/mdGLdsF6s8D6ODjv3FOB9ABn0FMwynp254pVyxGRznH1r9ydjwOh9Zf8E9fEd1D488YaKJSdPvdDS+eMnhZ4J0jVwPUpKVPsBV//gomkf8AwlPw2lVMTvpGpozf7C3EJA/Nm/M1of8ABPXwBdwWfizxvfQvHZajCmkaZIwx9o2SeZcOnHKhhGm4cZDDsa5z9uCS98d/tA+EPBnhiJbvVrTRILSCFSSWub64aRQ3oAiox/2cmvwyjUovxGq1aTXLTpvma2TS6/ge6+b+zVF7t6Fr9gn4SDWvFmo/EXWYc2PhxmstFDrxJfun72UevlRtgf7Unqtdj+338XWsND0v4aaNN/pGtLHqOvlDylmrfuIG/wCuki7yP7sa/wB6vo74eeBNP+F/gjQvCuhYlstDtViaUcG5lJ3TTN7u5dvxHpXzr42/YjvfiF411vxR4m+JhOo63dtPMIvDuViXAVIkzN9xECqB6CvmcFxVlWZcWVMyzGry06WlNO7v5/r8zrnhKtPCKnSWr3OQ/YB+IX9n+MvEPgy/kCxa/ZjUbEE8fabcbZAPdoWz/wBs67X9v/wH/a3g3w342tIv3/hq9Omagy4z9kujmMn1CzqB7eaam+Hf7E5+HXjbQvFGkfEa5mvNDvUuUibQERZlHDxswmJCshZTweDX0H498H23xH8DeIfCd7tWHxJp0tkjn/llIw/dP9VkCH8KjN+JMsocYYfNcvq80ZWU7aeT/D8h0cLVlg5Uqis+h8qf8E8/DUcup+OvFEseZbOC00m2Y9vNLTS/+Oxxj86P2+vi1etqmk/DfQ55YLB7FNU8QLGdv2rzGItoHx1QBGkK9CWXPSui/wCCfbvbeBviBpuoo0WqWPiG3W9hIOUcQNEw5/24nGK8/wD29vh5qOl+O9L8dxQzTaFq+mW+m3VwF+Syu4NwRHI+6JI2BUnglWHXFfRYWphcT4jVHimnyx9y+17K1vvbOWopQy73PmfLePmOBgdKKc46Eevp1pOcdq/e01Y+cJN3ADc+nPSvpT9g/wAa3+j/ABfbwxHI76V4l0+4aa3LfKk9vH5iygdjtDIT3Br5pLCNN7/Iv95uBX23+w78B9W8OXVz8RvGNnNp7X1g1noNncIUmMUhBluXQ8qrBQiA8kFmxjGfhPETG4LD8P4hYhrVWiurfSx6OWQm68XE6/8Ab3WE/AOxEuDKvizTxDnqCY584/4DmvgIgnuRX2H/AMFCfGUK2/gnwbbsDcG4m1y9Ab/VxhGt4FI9WZpWHsnvXxwZTn5cVzeFmEqUOGaPOrczbXo2aZrNPFOx7T+x18fbD4V+ItQ8O+NrpbXw14lljdLyU/u9PvVG1ZJP7sbrhGbsVQnjOPtz4g/DDwn8V9Hg0/4g6JY65ZqvmWNyHKSwBv47e4jO5Qevykqe4NfksGDZXAIYc8cV6F8NP2gvH/wkhFp4L8QTLpQbd/ZV/Gt5aKf9mN/uf8AK1y8WcA1sbjP7Syyr7Ov11tf7isFmMacPZVVeJ9Xal/wT98A3UxfSPEXjfS0LE+U0tteAD0BeMN+ea2fCv7B3wv0a4WbXpfFfijaf9TqOorbwMf8AajgVSR7Fq8asv+ChvjWCMDUvB3gu9kHWRJbuDP8AwEOw/WsHxN+3f8UNdhaHQf8AhGfC6PnMmn6eZ5h9HnZ8HHfbXzEch8RKq9jPE8se91+iudbxWWR1Ubn1t+0Pb+EPAn7MvjHw9MdE8J6Nf6HcW2kafCqW6XN3hXiSGMDMjl0UEgE9yR1qx+xzZG2/Z/8Ahs0oCrcW8t0wP/TS8mavzL8QeItV8Wa0+seLNU1DXNVkGHvNRuGnkx6AsflX2XA9q+hfAH7dGv8Aw78AaF4V03wZ4duodA0xbGC8m1C4V5MBv3jKoxnLE4H51vmvh1mUclhgqNT2tR1FObb8raX3IpZlSdZzasrWR7N+wSVu/BXxD1cfMNV8aSsH/vgRbs/nMa1Piv8Asa6P8WviLq3i7UfGWt6VPqyW6vaW2m28yRCGFIgAztk5C56DrXzV+z9+1hcfAT4fy+GLTwjY66JtTlv3u59Vktm3PHGmzYsbDAEec5716SP+CjF83/NN9KP/AHMM3/xmvOzPhni/D5/iMflcUlOyTvHZJd/Q3hi8HOgqdV7HQ/8ADu7w4evxE8Ufho1p/wDFV03hP9gj4baJeQ3XiPUfFXiryjk2t7cRWlvKf9tYFDEe28V52f8Agotf4/d/DbSQffxBMf8A2jWRrH/BQ/xjPEyeHvBvhHTHI+Wa5uLm9Kn12kovHHXNKplviZiV7OVVRT63ivy1Eq2WQ1tc+0vE3ijw18JPAc2r+IntdC8MeHLZYoobaMRqqgYjt4Ix1diNqoOSTk9zXzV+x54a1P4sfEbxj8dfHFt5dxqd9Pa6FCeRC7KElZPaGER24PcmQ18h/Ef4r+MPi3qaah8QddudUlti32ODasVtZEjGYYFGxD74LHua968Cft76l8PfBeheGfDvw48NLp2g2UdpCDq1yGkA5d2wvLOxZ292NdNPw4zTLMmrUsLL2mKxGk5X2j1Sb1d+pm8zo1KqctIx2R9B/HD9rjw58EvGyeFrnQ9T8RaiLGO7vTZX0UC2ZkJMcbbwcsUG/joGX1rz3/h4h4c6D4f+IBz31m3/APiK+LvE/ibUfGXibV/EPiW4NzquvXsl5dyAYy7n7oHZVG1VHZVAqh5jf3j+Jr6bLfCbIKWEpwr0uaaS5nd6vqctTOMQ5Nxeh9wD/gohoAGI/h9rpz13a1b/APxFe7fAn4zab8dfCN1ruj6fc6PLp2oG0uLGedZnibYHR9ygDDKcjA7GvysSUheWI/GvVf2fv2jNX+Aup63daFp2m69aa5bRRT2d5cvEivGxKShkBO4BmXHcH2FeVxP4UZbPLprK6fLW0tr57am2FzeqqidV3ifRPjLxVB+y7+2Bf6zqyyxeB/ijp4u74wRkrby7tssgA6mOdd7Ac7Z2719Zxmx13QSwOnazomrQblbCXNteRNj1yrr/AC+tfmp8fP2nrv8AaH03QbTV/C2haHP4evJZ4LywvpZ5CkibXh+YABSwRjyeUHvXG/D345+L/hMzp8PfFNzpdtNJ+9sXKz2cj+8TgoG+mGrz8z8N8bmmBw+KnUVLFwiot30lbZ3XWxrSzSFOco2vBn334h/Yx+EHiS4e4h8PXugzPksNE1SS2jz/ANcm3IOfQCsGH9hL4WQzgzyeM7hF/gOtqob/AL5iFeH6b/wUS8caXEkWv6F4J1KTaDv2zWjN9QshH5CtCX/got4svLdm0/wd4KjPTf8AbLqUL68BhXmw4e8QqP7qGIul/eX/AA5t9Yy56uP4H1T4B/Z7+Gfw7uUu/CfhDTo9SjOY7+/LX1whHQq8pIU/7oFaHxm+OPhn4I6E+peNbvzdSmRmsNFgkBvNQkxwFU/dTPWRsKo9TgV8IeIf24Pil4mUw6drmkeHY5wdg0PTUjkI/wBmaQu34g14nqOqTalqcl9rF5d6lqd85MtzdzNcTzt15ZiWb+ntXflvhdmOOxKxGd4rniul7/K+y+RlWzWlTjy0I6nQePPHWr/E7xpqvinxa6NqesTB3jiz5dvGo2xQRg9ERcKPXknkmsVVBHWoIpkuFDxsrq3RlPWrKqCPmH5mv3WhQp0KUaVNWilZLyPnZycpNvc5cgHvjtSbj+lKabn1roAXce/I+tAOCMfzpvalJAHFFhDic9M0uTnsD9KjB+madn8hSsIcCf4cCnbz0z+NRg0A8+lKw7km5vU49KUPn1zio8/SjJpJBclTpzmnJx0qEEj15pwbHBphckPX/wCvQOMZApoIzzzShueKAaG3Sme1kiHWZDGOP7w2/wBa+m/2kvhz/wAJ/wDHXw1F4P8AJs28USz+Gb2VUCxWNzpEvkTzuR022myZsgYCA96+btLnhttTsZr6J57e3u4ZZ4kYBpI1kVmUE8AlVIBPGSK9Rvfj7czeHvijaQ6ZImp/EDxBealYai04L6PDe7kvohx8zSwCGLcOBhj6V4mYYfEyrwqUeia+/wDy3OmjKHK1I7P4h6P4Z+J3x++Geg6ZG+l+Cv8AhCdOIitECTDSYVvbt/8AttJbRE5J+9Lmuc8K/tL+KtU8SaZbTwaY3gPVryC0bwDHYQLpQsZpVQW6x7CfMCOP324ybxu3dq5aT4tXFh8UvD3jPwvZC2l8NafpNla2N4weOZLSxS2lR9vWOX99wOdsnrW5p3jn4ZeBtTHiX4Z+GfGLeKLeX7Ro2n+IL21m0rQ7jJZJQY/3135TEGNJAgJVS+cEHi+p1IwjTqU3L3bLrZ63v57amnOrtpnXfAvxDrPwm/aP1Twj4Y1m8j8MaX4j1ddQtGVXS+ttNju2Uy5GSdkAU8jNcl4F8Xan8RZte8ffGO6m8ZzeAfCi39rZakiGG6upbmOG0glCBN1us9w0rIclgm0nBrkvh/40/wCEO8R6lrWppd6reXeh6zZrKZAZGu761lh8+RmPI3zM7HrycVN8NPGFn4Mur+18Q6dLrHhnxFpLaRrthDMsM0tszI6yQyEEJNHLFHIjEYyuDwa3qZfNOc1H3rRV1u/5vvJjUWiuepfDb4r+KfjP4wh8CfFvVW8S+H/FdvdWyQ3NnAg0edbaWWG7sgiD7OYmjHyrhSuVNZX7P+salP8ADnWofhd4j0fwt8UdUv7CW1nu7uOxnvdNELGS2s7qX93HIZyGZCVLqEAPFYz+M/BPgbRdXg+D9v4xv9f1+ym02bX/ABN9mtv7LsphtnS1gt2YGeSPKGZ2G1S21QTWZ4Rv/h3P4Pl0H4maR4iguYNSa8s9Y8NLbNcTwPCsb2UyzkARgoHSQZKMzHac851cLJ0punBqLasrdr3bXZjU1dXZF8TdZ1XX/iJrV74u0WPw94g3Q2+tWCReUft0MKpPMyAAI8rDzGCjblsgnOTzilmGQP1rZ+IHjmf4kePNb8TXdr9hOrTIYbYzmYwQxRJDCjSEZdhHEm5/4mLGshGwo68819BhYONCCkrOy0OWbvJ2OXzn3pP6Ud/alxjGev0rcnmGnj3IFNzSmgn3oC4A5NL1NIDigUBcXOPpS596Q+tB+hFAXHZ/Kjv2po/rSjqfUelAXFB/lS5Pc0n1oOT+NA0xc+mfanBvrx0pnU04daLCTH5/SnZ/yaYvH/6qXPPQUBsSIeP8afuyc8Y9qiWng8AH+VAXJFbAx3pwO4+oNRKDj0+tSJj2oGmSj6daeO3WowfXNSKe3r70DJo+oqyrOVGFz+NVFOORjirsJIjH+FKTA5fGOxox6dKKKZkMPB5/CiiigaYYxS8GiigroHWjBoooEhMHtSr1Hv7UUUFD6QD/AOvRRQCF+lLjjrRRQJgP/r4pw68UUUFCg+n0p/bnt1oooAeOBz1FPBxjGPwoooAePTHWpEOPQ0UUASx5PA71HfXwtpQrMFyueme5ooqZAf/Z" alt="Cidão Motos" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div class="text-sm font-extrabold flex items-center gap-1">
+              Cidão Motos | Fábrica de Sonhos
+              <i data-lucide="badge-check" class="w-4 h-4 text-emerald-300"></i>
+            </div>
+            <div id="wa-modal-recipient" class="text-[11px] text-emerald-100">Enviado via WhatsApp</div>
+          </div>
+        </div>
+        <button onclick="closeWhatsAppModal()" class="text-white/80 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-4 bg-[#EFEAE2] space-y-3">
+        <div class="bg-[#D9FDD3] text-slate-900 rounded-2xl rounded-tr-none p-4 text-xs sm:text-sm leading-relaxed shadow-sm border border-emerald-200">
+          <p id="wa-modal-message" class="whitespace-pre-line font-medium"></p>
+          <div class="mt-2 flex items-center justify-end gap-1 text-[10px] text-slate-500">
+            <span>Agora mesmo</span>
+            <i data-lucide="check-check" class="w-4 h-4 text-sky-500"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-3.5 bg-white border-t border-slate-200 flex items-center justify-end gap-2">
+        <button onclick="copyWhatsAppMessage()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center gap-1.5">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar
+        </button>
+        <button onclick="closeWhatsAppModal()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       MODAL NOVA MOTO
+       ========================================================= -->
+  <div id="new-bike-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="closeNewBikeModal()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-[2px]"></div>
+    <div class="relative z-10 w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden animate-pop">
+      <div class="p-4 border-b border-slate-200 flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-slate-900">Entrada de Moto no Pátio</h3>
+        <button onclick="closeNewBikeModal()" class="text-slate-400 hover:text-slate-700">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleAddNewBike(event)" class="p-5 space-y-4 text-xs">
+        <div class="grid grid-cols-3 gap-3">
+          <div class="col-span-2">
+            <label class="block font-bold text-slate-700 mb-1">Modelo e Ano</label>
+            <input id="nb-model" required type="text" placeholder="Ex: Honda CB 300F 2024" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Placa RJ</label>
+            <input id="nb-plate" required type="text" placeholder="RKP-9A12" maxlength="8" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono uppercase text-slate-900" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Venda (R$)</label>
+            <input id="nb-sale" required type="number" placeholder="24900" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono text-slate-900" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Aquisição (R$)</label>
+            <input id="nb-cost" required type="number" placeholder="19800" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono text-slate-900" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Oficina (R$)</label>
+            <input id="nb-workshop" required type="number" value="450" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 font-mono text-slate-900" />
+          </div>
+        </div>
+
+        <div class="pt-2 flex justify-end gap-2">
+          <button type="button" onclick="closeNewBikeModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-bold">Cancelar</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-slate-900 text-white font-extrabold">Adicionar ao Pátio</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- =========================================================
+       JAVASCRIPT VANILLA — FOTOS REAIS DO SALÃO CIDÃO MOTOS
+       ========================================================= -->
+  <script>
+    // Fotos reais do salão da Cidão Motos na Taquara (parede cinza chumbo com letreiro 3D amarelo CIDÃO MOTOS)
+    const INITIAL_PATIO_BIKES = [
+      {
+        id: 'bike-1',
+        model: 'Honda XRE 300 ABS 2022',
+        category: 'Trail • FlexOne',
+        plate: 'RJM-4B22',
+        km: '21.400 km',
+        daysInYard: 12,
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598182693/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 18900,
+        acquisitionCost: 14500,
+        docCost: 350,
+        feeCost: 300,
+        workshopItems: [
+          { name: 'Kit relação (Coroa, Corrente e Pinhão)', cost: 280 },
+          { name: 'Troca de óleo Motul + Filtro', cost: 95 },
+          { name: 'Pneu traseiro novo', cost: 215 },
+          { name: 'Revisão elétrica + Lâmpada LED', cost: 90 }
+        ]
+      },
+      {
+        id: 'bike-2',
+        model: 'Yamaha Fazer FZ25 ABS 2023',
+        category: 'Street • BlueFlex',
+        plate: 'RKW-8F19',
+        km: '14.200 km',
+        daysInYard: 8,
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598580681/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 21500,
+        acquisitionCost: 17100,
+        docCost: 350,
+        feeCost: 300,
+        workshopItems: [
+          { name: 'Troca de óleo Yamalube + Filtro', cost: 110 },
+          { name: 'Pastilhas de freio', cost: 130 },
+          { name: 'Check-up 25 itens', cost: 150 }
+        ]
+      },
+      {
+        id: 'bike-3',
+        model: 'Honda CG 160 Titan 2024',
+        category: 'Street • Campeã de Giro',
+        plate: 'SRT-2A90',
+        km: '6.800 km',
+        daysInYard: 5,
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598572668/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 17900,
+        acquisitionCost: 14200,
+        docCost: 320,
+        feeCost: 250,
+        workshopItems: [
+          { name: 'Troca de óleo + Regulagem', cost: 85 },
+          { name: 'Polimento + Check-up 25 itens', cost: 125 }
+        ]
+      },
+      {
+        id: 'bike-4',
+        model: 'Honda NXR 160 Bros ESDD 2021',
+        category: 'Trail • Uso Misto',
+        plate: 'RIR-7C45',
+        km: '28.900 km',
+        daysInYard: 19,
+        status: 'oficina',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/601489839/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 16800,
+        acquisitionCost: 12900,
+        docCost: 350,
+        feeCost: 250,
+        workshopItems: [
+          { name: 'Par de pneus Pirelli MT60', cost: 580 },
+          { name: 'Kit relação + Troca de óleo', cost: 260 },
+          { name: 'Retentor de bengala', cost: 180 }
+        ]
+      },
+      {
+        id: 'bike-5',
+        model: 'Yamaha XTZ 250 Lander ABS 2022',
+        category: 'Trail • Alta Procura',
+        plate: 'RNO-3D88',
+        km: '24.100 km',
+        daysInYard: 52, // >45 dias
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598178242/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 22800,
+        acquisitionCost: 18400,
+        docCost: 350,
+        feeCost: 300,
+        workshopItems: [
+          { name: 'Pneu dianteiro + Câmara', cost: 290 },
+          { name: 'Bateria nova + Revisão elétrica', cost: 220 },
+          { name: 'Troca de óleo + Filtro', cost: 190 }
+        ]
+      },
+      {
+        id: 'bike-6',
+        model: 'Yamaha NMax 160 Connected 2022',
+        category: 'Scooter • ABS',
+        plate: 'RLB-6K33',
+        km: '18.700 km',
+        daysInYard: 58, // >45 dias
+        status: 'oficina',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598174016/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 18200,
+        acquisitionCost: 14600,
+        docCost: 350,
+        feeCost: 250,
+        workshopItems: [
+          { name: 'Pneu traseiro Michelin', cost: 320 },
+          { name: 'Pastilhas de freio + Fluido', cost: 140 },
+          { name: 'Revisão geral 25 itens', cost: 160 }
+        ]
+      },
+      {
+        id: 'bike-7',
+        model: 'Honda Biz 125 EX 2023',
+        category: 'Cub • Econômica',
+        plate: 'RUV-1J04',
+        km: '9.500 km',
+        daysInYard: 14,
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598185089/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 16900,
+        acquisitionCost: 13400,
+        docCost: 320,
+        feeCost: 250,
+        workshopItems: [
+          { name: 'Troca de óleo + Filtro centrífugo', cost: 110 },
+          { name: 'Check-up 25 itens', cost: 120 }
+        ]
+      },
+      {
+        id: 'bike-8',
+        model: 'Yamaha XTZ 150 Crosser Z 2022',
+        category: 'Trail • ABS',
+        plate: 'RGD-5H72',
+        km: '27.300 km',
+        daysInYard: 49, // >45 dias
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598199310/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 17500,
+        acquisitionCost: 13900,
+        docCost: 350,
+        feeCost: 250,
+        workshopItems: [
+          { name: 'Kit relação + Bucha coroa', cost: 270 },
+          { name: 'Cabo acelerador + Óleo', cost: 130 }
+        ]
+      },
+      {
+        id: 'bike-9',
+        model: 'Yamaha XMax 250 ABS 2023',
+        category: 'Maxi Scooter • Premium',
+        plate: 'RQP-9E11',
+        km: '11.200 km',
+        daysInYard: 10,
+        status: 'pronta',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598186139/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice: 28900,
+        acquisitionCost: 23800,
+        docCost: 350,
+        feeCost: 350,
+        workshopItems: [
+          { name: 'Revisão CVT + Correia', cost: 390 },
+          { name: 'Óleo + Filtro + Check-up 25 itens', cost: 210 }
+        ]
+      }
+    ];
+
+    const INITIAL_PIPELINE_CARDS = [
+      {
+        id: 'pipe-1',
+        stage: 1,
+        buyer: 'Wallace Mendonça',
+        neighborhood: 'Taquara - RJ',
+        phone: '(21) 99812-4410',
+        bike: 'Honda NXR 160 Bros 2024',
+        plate: 'RKY-1D44',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598182693/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 22,
+        checklistTotal: 25,
+        note: 'Óleo, filtro, relação e freios conferidos na oficina.'
+      },
+      {
+        id: 'pipe-2',
+        stage: 1,
+        buyer: 'Rodrigo Peixoto',
+        neighborhood: 'Freguesia - RJ',
+        phone: '(21) 98741-9022',
+        bike: 'Yamaha Crosser 150 Z 2023',
+        plate: 'RJA-9C18',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598199310/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 18,
+        checklistTotal: 25,
+        note: 'Trocando pneu traseiro e pastilha dianteira.'
+      },
+      {
+        id: 'pipe-3',
+        stage: 2,
+        buyer: 'Matheus Oliveira',
+        neighborhood: 'Pechincha - RJ',
+        phone: '(21) 97125-3389',
+        bike: 'Yamaha Lander 250 ABS 2024',
+        plate: 'RQN-5B77',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598178242/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 25,
+        checklistTotal: 25,
+        note: 'ATPV-e emitida no DETRAN-RJ e contrato assinado.'
+      },
+      {
+        id: 'pipe-4',
+        stage: 2,
+        buyer: 'Priscila Fontes',
+        neighborhood: 'Curicica - RJ',
+        phone: '(21) 99604-1175',
+        bike: 'Honda Biz 110i 2024',
+        plate: 'SRU-8H21',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598185089/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 25,
+        checklistTotal: 25,
+        note: 'Revisão 100% pronta. Vistoria aprovada.'
+      },
+      {
+        id: 'pipe-5',
+        stage: 3,
+        buyer: 'Diego Nascimento',
+        neighborhood: 'Tanque - RJ',
+        phone: '(21) 98233-6701',
+        bike: 'Honda CB 300F Twister 2024',
+        plate: 'RPL-3F90',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598572668/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 25,
+        checklistTotal: 25,
+        note: 'Lavada e posicionada para o Vídeo do Sonho Realizado!'
+      },
+      {
+        id: 'pipe-6',
+        stage: 3,
+        buyer: 'Lucas Santana',
+        neighborhood: 'Praça Seca - RJ',
+        phone: '(21) 97540-8820',
+        bike: 'Yamaha NMax 160 ABS 2024',
+        plate: 'RME-7A55',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598174016/transform/fl_progressive,f_webp,q_85,w_640',
+        checklistDone: 25,
+        checklistTotal: 25,
+        note: 'Pronta no tapete de entrega (cliente chega às 18h).'
+      }
+    ];
+
+    const INITIAL_POSVENDA_CLIENTS = [
+      {
+        id: 'pv-1',
+        name: 'Bruno Magalhães',
+        neighborhood: 'Taquara - RJ',
+        phone: '(21) 98412-3099',
+        bike: 'Honda CB 300F Twister',
+        plate: 'RMA-4C12',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598580681/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 30,
+        ruleTitle: 'Check-up de Garantia / Primeiros 1.000 km',
+        estimatedRevenue: 140,
+        status: 'pendente'
+      },
+      {
+        id: 'pv-2',
+        name: 'Jéssica Soares',
+        neighborhood: 'Freguesia - RJ',
+        phone: '(21) 99104-7721',
+        bike: 'Yamaha NMax 160 ABS',
+        plate: 'RJD-8E30',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598174016/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 30,
+        ruleTitle: 'Check-up de Garantia / Primeiros 1.000 km',
+        estimatedRevenue: 150,
+        status: 'pendente'
+      },
+      {
+        id: 'pv-3',
+        name: 'Anderson Silva ("Dinho")',
+        neighborhood: 'Curicica - RJ',
+        phone: '(21) 97288-5140',
+        bike: 'Honda XRE 300 ABS',
+        plate: 'RHT-2B88',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598182693/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 90,
+        ruleTitle: 'Hora de Trocar o Óleo + Cupom Check-up Grátis',
+        estimatedRevenue: 320,
+        status: 'pendente'
+      },
+      {
+        id: 'pv-4',
+        name: 'Felipe Coutinho',
+        neighborhood: 'Pechincha - RJ',
+        phone: '(21) 98831-6604',
+        bike: 'Yamaha Lander 250 ABS',
+        plate: 'RLP-9A41',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598178242/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 90,
+        ruleTitle: 'Hora de Trocar o Óleo + Cupom Check-up Grátis',
+        estimatedRevenue: 290,
+        status: 'pendente'
+      },
+      {
+        id: 'pv-5',
+        name: 'Leandro Batista',
+        neighborhood: 'Taquara - RJ',
+        phone: '(21) 96490-1182',
+        bike: 'Yamaha Crosser 150 Z',
+        plate: 'RJC-3F77',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598199310/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 180,
+        ruleTitle: 'Revisão Semestral (Kit Relação, Pneus & Freios)',
+        estimatedRevenue: 540,
+        status: 'agendado'
+      },
+      {
+        id: 'pv-6',
+        name: 'Alexandre ("Xandão")',
+        neighborhood: 'Vila Valqueire - RJ',
+        phone: '(21) 99923-4510',
+        bike: 'Honda Biz 125 EX',
+        plate: 'RFA-1J92',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598185089/transform/fl_progressive,f_webp,q_85,w_640',
+        days: 365,
+        ruleTitle: 'Aniversário do Sonho — Simulação de Upgrade',
+        estimatedRevenue: 2950,
+        status: 'pendente'
+      }
+    ];
+
+    let patioBikes = JSON.parse(JSON.stringify(INITIAL_PATIO_BIKES));
+    let pipelineCards = JSON.parse(JSON.stringify(INITIAL_PIPELINE_CARDS));
+    let posVendaClients = JSON.parse(JSON.stringify(INITIAL_POSVENDA_CLIENTS));
+
+    let currentPatioFilter = 'all';
+    let currentPosVendaFilter = 'all';
+    let activeDossierBikeId = null;
+
+    function formatBRL(value) {
+      return Number(value).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+    }
+
+    function calcBikeMetrics(bike) {
+      const workshopCost = bike.workshopItems.reduce((acc, item) => acc + Number(item.cost || 0), 0);
+      const totalCosts = Number(bike.acquisitionCost) + workshopCost + Number(bike.docCost) + Number(bike.feeCost);
+      const netProfit = Number(bike.salePrice) - totalCosts;
+      const marginPct = bike.salePrice > 0 ? ((netProfit / bike.salePrice) * 100).toFixed(1) : '0.0';
+      return { workshopCost, totalCosts, netProfit, marginPct };
+    }
+
+    function switchTab(tabId) {
+      ['patio', 'esteira', 'posvenda'].forEach(t => {
+        const sec = document.getElementById(`tab-content-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabId) {
+          sec.classList.remove('hidden');
+          btn.className = 'flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-2 bg-white text-slate-900 shadow-sm border border-slate-200/80';
+        } else {
+          sec.classList.add('hidden');
+          btn.className = 'flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900';
+        }
+      });
+      lucide.createIcons();
+    }
+
+    // ====================================================
+    // ABA 1: PAINEL DE CARDS COM FOTOS, PLACAS E MARGEM
+    // ====================================================
+    function updatePatioKPIs() {
+      const totalCount = 15 + patioBikes.length;
+      const initialWS = INITIAL_PATIO_BIKES.reduce((s, b) => s + calcBikeMetrics(b).workshopCost, 0);
+      const currentWS = patioBikes.reduce((s, b) => s + calcBikeMetrics(b).workshopCost, 0);
+      const wsDelta = currentWS - initialWS;
+
+      const slowCount = patioBikes.filter(b => b.daysInYard > 45).length;
+
+      const initProfit = INITIAL_PATIO_BIKES.reduce((s, b) => s + calcBikeMetrics(b).netProfit, 0);
+      const currProfit = patioBikes.reduce((s, b) => s + calcBikeMetrics(b).netProfit, 0);
+      const avgProfit = 2840 + Math.round((currProfit - initProfit) / patioBikes.length);
+
+      document.getElementById('kpi-motos-patio').textContent = totalCount;
+      document.getElementById('kpi-capital-imobilizado').textContent = formatBRL(342000 + wsDelta);
+      document.getElementById('kpi-oficina-acumulada').textContent = `Aquisição + ${formatBRL(14820 + wsDelta)} em oficina`;
+      document.getElementById('kpi-lucro-medio').textContent = formatBRL(avgProfit);
+      document.getElementById('kpi-alerta-giro').textContent = `${slowCount} motos`;
+    }
+
+    function setPatioFilter(filter) {
+      currentPatioFilter = filter;
+      ['all', 'pronta', 'oficina', 'giro'].forEach(f => {
+        const btn = document.getElementById(`filter-btn-${f}`);
+        if (!btn) return;
+        if (f === filter) {
+          btn.className = 'px-3 py-1.5 rounded-lg font-bold bg-white text-slate-900 shadow-sm transition';
+        } else {
+          btn.className = f === 'giro'
+            ? 'px-3 py-1.5 rounded-lg font-bold text-amber-700 hover:text-amber-900 transition'
+            : 'px-3 py-1.5 rounded-lg font-semibold text-slate-600 hover:text-slate-900 transition';
+        }
+      });
+      renderPatioBikes();
+    }
+
+    function renderPatioBikes() {
+      updatePatioKPIs();
+      const query = (document.getElementById('search-patio')?.value || '').toLowerCase().trim();
+      const grid = document.getElementById('patio-bikes-grid');
+
+      const filtered = patioBikes.filter(bike => {
+        if (currentPatioFilter === 'pronta' && bike.status !== 'pronta') return false;
+        if (currentPatioFilter === 'oficina' && bike.status !== 'oficina') return false;
+        if (currentPatioFilter === 'giro' && bike.daysInYard <= 45) return false;
+        if (query && !bike.model.toLowerCase().includes(query) && !bike.plate.toLowerCase().includes(query)) return false;
+        return true;
+      });
+
+      grid.innerHTML = filtered.map(bike => {
+        const m = calcBikeMetrics(bike);
+        const isSlow = bike.daysInYard > 45;
+
+        return `
+          <div onclick="openDossierModal('${bike.id}')" class="cursor-pointer group bg-white rounded-3xl border ${isSlow ? 'border-amber-400 ring-2 ring-amber-400/20' : 'border-slate-200/90'} hover:border-slate-400 shadow-sm hover:shadow-xl transition-all duration-200 overflow-hidden flex flex-col justify-between">
+            
+            <div>
+              <!-- Foto Real da Moto no Salão Cidão Motos + Placa Mercosul RJ -->
+              <div class="relative h-52 w-full bg-slate-900 overflow-hidden">
+                <img src="${bike.photo}" alt="${bike.model}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent"></div>
+
+                <!-- Placa Mercosul RJ no Canto Superior Esquerdo -->
+                <div class="absolute top-3 left-3">
+                  <div class="mercosul-plate px-2.5 py-0.5 text-xs">${bike.plate}</div>
+                </div>
+
+                <!-- Status e Dias de Pátio no Canto Superior Direito -->
+                <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                  ${isSlow ? `
+                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-extrabold bg-amber-400 text-slate-950 shadow flex items-center gap-1">
+                      <i data-lucide="clock" class="w-3 h-3"></i> ${bike.daysInYard} dias
+                    </span>
+                  ` : `
+                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-black/65 backdrop-blur-md text-white">
+                      ${bike.daysInYard} dias
+                    </span>
+                  `}
+                  <span class="px-2.5 py-1 rounded-lg text-[11px] font-extrabold ${bike.status === 'pronta' ? 'bg-emerald-500 text-white' : 'bg-amber-400 text-slate-950'}">
+                    ${bike.status === 'pronta' ? 'Pronta' : 'Na Oficina'}
+                  </span>
+                </div>
+
+                <!-- Título da Moto + Preço de Venda na Base da Foto -->
+                <div class="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between gap-2">
+                  <div>
+                    <span class="text-[11px] font-bold text-amber-300 block">${bike.km}</span>
+                    <h3 class="text-base sm:text-lg font-extrabold text-white leading-tight drop-shadow">${bike.model}</h3>
+                  </div>
+                  <div class="bg-white/95 backdrop-blur-md px-3 py-1 rounded-xl text-right shadow">
+                    <span class="text-[9px] uppercase font-extrabold text-slate-400 block">Venda</span>
+                    <span class="text-sm font-mono font-extrabold text-slate-900">${formatBRL(bike.salePrice)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resumo Limpo dos Custos -->
+              <div class="p-4 grid grid-cols-3 gap-2 text-center border-b border-slate-100">
+                <div class="bg-slate-50 rounded-xl p-2 border border-slate-200/60">
+                  <div class="text-[10px] font-bold text-slate-400 uppercase">Aquisição</div>
+                  <div class="text-xs font-mono font-bold text-slate-700 mt-0.5">${formatBRL(bike.acquisitionCost)}</div>
+                </div>
+                <div class="bg-amber-50/80 rounded-xl p-2 border border-amber-200/80">
+                  <div class="text-[10px] font-bold text-amber-700 uppercase">Oficina (${bike.workshopItems.length})</div>
+                  <div class="text-xs font-mono font-extrabold text-amber-700 mt-0.5">- ${formatBRL(m.workshopCost)}</div>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-2 border border-slate-200/60">
+                  <div class="text-[10px] font-bold text-slate-400 uppercase">Doc & Taxas</div>
+                  <div class="text-xs font-mono font-bold text-slate-600 mt-0.5">- ${formatBRL(bike.docCost + bike.feeCost)}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rodapé do Card: Lucro Líquido Real no Bolso -->
+            <div class="p-4 bg-emerald-50/60 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 block">Lucro Líquido Real</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl font-extrabold font-mono text-emerald-600">${formatBRL(m.netProfit)}</span>
+                  <span class="text-xs font-mono font-bold text-emerald-700">(${m.marginPct.replace('.', ',')}%)</span>
+                </div>
+              </div>
+
+              <span class="px-3.5 py-2 rounded-xl bg-slate-900 group-hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                Abrir Dossiê
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // ====================================================
+    // DOSSIÊ FINANCEIRO DA PLACA
+    // ====================================================
+    function openDossierModal(bikeId) {
+      activeDossierBikeId = bikeId;
+      renderDossierContent();
+      document.getElementById('dossier-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeDossierModal() {
+      document.getElementById('dossier-modal').classList.add('hidden');
+      activeDossierBikeId = null;
+    }
+
+    function renderDossierContent() {
+      const bike = patioBikes.find(b => b.id === activeDossierBikeId);
+      if (!bike) return;
+      const m = calcBikeMetrics(bike);
+
+      document.getElementById('dossier-photo').src = bike.photo;
+      document.getElementById('dossier-plate').textContent = bike.plate;
+      document.getElementById('dossier-title').textContent = bike.model;
+      document.getElementById('dossier-subtitle').textContent = `${bike.km} • ${bike.daysInYard} dias no pátio`;
+
+      document.getElementById('dossier-input-sale').value = bike.salePrice;
+      document.getElementById('dossier-input-cost').value = bike.acquisitionCost;
+      document.getElementById('dossier-input-doc').value = bike.docCost;
+      document.getElementById('dossier-input-fee').value = bike.feeCost;
+
+      document.getElementById('dossier-workshop-count').textContent = `${bike.workshopItems.length} itens`;
+      document.getElementById('dossier-workshop-total').textContent = `- ${formatBRL(m.workshopCost)}`;
+
+      document.getElementById('dossier-workshop-items').innerHTML = bike.workshopItems.map((item, idx) => `
+        <div class="flex items-center justify-between text-xs bg-white px-3 py-2 rounded-xl border border-amber-200">
+          <span class="text-slate-800 font-medium">${item.name}</span>
+          <div class="flex items-center gap-2">
+            <span class="font-mono font-bold text-slate-900">R$ ${item.cost}</span>
+            <button onclick="removeWorkshopItem(${idx})" class="text-slate-400 hover:text-rose-500">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('dossier-net-profit').textContent = formatBRL(m.netProfit);
+      document.getElementById('dossier-net-margin').textContent = `Margem: ${m.marginPct.replace('.', ',')}%`;
+
+      lucide.createIcons();
+    }
+
+    function updateBikeFinancialsFromInput() {
+      const bike = patioBikes.find(b => b.id === activeDossierBikeId);
+      if (!bike) return;
+      bike.salePrice = Number(document.getElementById('dossier-input-sale').value || 0);
+      bike.acquisitionCost = Number(document.getElementById('dossier-input-cost').value || 0);
+      bike.docCost = Number(document.getElementById('dossier-input-doc').value || 0);
+      bike.feeCost = Number(document.getElementById('dossier-input-fee').value || 0);
+      renderDossierContent();
+      renderPatioBikes();
+      showToast('Lucro Líquido recalculado na hora!');
+    }
+
+    function quickAddWorkshopItem(name, cost) {
+      const bike = patioBikes.find(b => b.id === activeDossierBikeId);
+      if (!bike) return;
+      bike.workshopItems.push({ name, cost: Number(cost) });
+      renderDossierContent();
+      renderPatioBikes();
+      showToast(`+ "${name}" (R$ ${cost}) lançado na placa ${bike.plate}!`);
+    }
+
+    function addCustomWorkshopItem() {
+      const nameInput = document.getElementById('new-ws-item-name');
+      const costInput = document.getElementById('new-ws-item-cost');
+      const name = nameInput.value.trim();
+      const cost = Number(costInput.value);
+      if (!name || !cost || cost <= 0) return;
+      quickAddWorkshopItem(name, cost);
+      nameInput.value = '';
+      costInput.value = '';
+    }
+
+    function removeWorkshopItem(idx) {
+      const bike = patioBikes.find(b => b.id === activeDossierBikeId);
+      if (!bike) return;
+      bike.workshopItems.splice(idx, 1);
+      renderDossierContent();
+      renderPatioBikes();
+    }
+
+    function sendBikeToDeliveryPipeline() {
+      const bike = patioBikes.find(b => b.id === activeDossierBikeId);
+      if (!bike) return;
+
+      pipelineCards.unshift({
+        id: 'pipe-' + Date.now(),
+        stage: 1,
+        buyer: 'Cliente Novo (Balcão)',
+        neighborhood: 'Taquara - RJ',
+        phone: '(21) 99988-7766',
+        bike: bike.model,
+        plate: bike.plate,
+        photo: bike.photo,
+        checklistDone: 16,
+        checklistTotal: 25,
+        note: 'Entrou agora no box da oficina para revisão de entrega.'
+      });
+
+      closeDossierModal();
+      renderKanban();
+      switchTab('esteira');
+      showToast(`${bike.model} enviada para a Esteira "Fábrica de Sonhos"!`);
+    }
+
+    // ====================================================
+    // ABA 2: ESTEIRA DE ENTREGA KANBAN COM FOTOS E PLACAS
+    // ====================================================
+    function renderKanban() {
+      [1, 2, 3].forEach(stageNum => {
+        const cards = pipelineCards.filter(c => c.stage === stageNum);
+        document.getElementById(`count-stage-${stageNum}`).textContent = cards.length;
+        const col = document.getElementById(`kanban-stage-${stageNum}`);
+
+        col.innerHTML = cards.map(card => {
+          const pct = Math.round((card.checklistDone / card.checklistTotal) * 100);
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-3">
+              <div class="relative h-36 w-full bg-slate-900">
+                <img src="${card.photo}" alt="${card.bike}" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="mercosul-plate px-2 py-0.5 text-[11px]">${card.plate}</span>
+                </div>
+                <div class="absolute bottom-2 left-3 right-3">
+                  <h4 class="text-sm font-extrabold text-white drop-shadow">${card.bike}</h4>
+                </div>
+              </div>
+
+              <div class="px-4 pb-4 space-y-3">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-900">${card.buyer}</span>
+                  <span class="text-slate-500">${card.neighborhood}</span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex justify-between text-[11px] font-semibold">
+                    <span class="text-slate-500">Checklist Oficina</span>
+                    <span class="font-mono ${pct === 100 ? 'text-emerald-600' : 'text-amber-600'}">${card.checklistDone}/${card.checklistTotal} itens</span>
+                  </div>
+                  <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div class="h-full ${pct === 100 ? 'bg-emerald-500' : 'bg-amber-500'} rounded-full" style="width:${pct}%"></div>
+                  </div>
+                  <p class="text-xs text-slate-500 pt-1">${card.note}</p>
+                </div>
+
+                <button onclick="advancePipelineStage('${card.id}')" class="w-full py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  Avançar Etapa + Avisar Cliente no WhatsApp
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      });
+
+      lucide.createIcons();
+    }
+
+    function advancePipelineStage(cardId) {
+      const idx = pipelineCards.findIndex(c => c.id === cardId);
+      if (idx === -1) return;
+      const card = pipelineCards[idx];
+
+      const waMessage = `Fala ${card.buyer}! Sua ${card.bike} acabou de sair da revisão na oficina da Cidão Motos com tudo 100% conferido. Já estamos finalizando a etapa de entrega!`;
+
+      if (card.stage === 1) {
+        card.stage = 2;
+        card.checklistDone = 25;
+        card.note = 'Revisão 100% concluída na oficina. Seguiu para documentação DETRAN-RJ.';
+      } else if (card.stage === 2) {
+        card.stage = 3;
+        card.note = 'Documentação liberada! Pronta para lavagem e vídeo da entrega.';
+      } else {
+        pipelineCards.splice(idx, 1);
+      }
+
+      renderKanban();
+      openWhatsAppModal(card.buyer, card.phone, waMessage);
+    }
+
+    // ====================================================
+    // ABA 3: PÓS-VENDA COM FOTOS E PLACAS
+    // ====================================================
+    function setPosVendaFilter(filter) {
+      currentPosVendaFilter = filter;
+      ['all', 30, 90, 365].forEach(f => {
+        const btn = document.getElementById(`pv-btn-${f}`);
+        if (!btn) return;
+        btn.className = (f === filter)
+          ? 'px-3 py-1 rounded-lg font-bold bg-white text-slate-900 shadow-sm'
+          : 'px-3 py-1 rounded-lg font-semibold text-slate-600';
+      });
+      renderPosVendaTable();
+    }
+
+    function renderPosVendaTable() {
+      const tbody = document.getElementById('posvenda-table-body');
+      const filtered = posVendaClients.filter(c => {
+        if (currentPosVendaFilter === 'all') return true;
+        if (currentPosVendaFilter === 90) return c.days === 90 || c.days === 180;
+        return Number(c.days) === Number(currentPosVendaFilter);
+      });
+
+      tbody.innerHTML = filtered.map(c => `
+        <tr class="hover:bg-slate-50 transition">
+          <td class="py-3.5 px-5">
+            <div class="font-bold text-slate-900">${c.name}</div>
+            <div class="text-xs text-slate-500">${c.neighborhood} • ${c.phone}</div>
+          </td>
+          <td class="py-3.5 px-5">
+            <div class="flex items-center gap-3">
+              <img src="${c.photo}" alt="${c.bike}" class="w-12 h-10 rounded-lg object-cover border border-slate-200 shrink-0" />
+              <div>
+                <div class="font-bold text-slate-800">${c.bike}</div>
+                <span class="font-mono text-xs text-blue-600 font-bold">${c.plate}</span>
+              </div>
+            </div>
+          </td>
+          <td class="py-3.5 px-5">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 font-mono text-xs font-extrabold">${c.days} dias</span>
+          </td>
+          <td class="py-3.5 px-5 text-xs font-semibold text-slate-700">${c.ruleTitle}</td>
+          <td class="py-3.5 px-5 text-right font-mono font-extrabold text-emerald-600">+ ${formatBRL(c.estimatedRevenue)}</td>
+          <td class="py-3.5 px-5">
+            ${c.status === 'agendado'
+              ? '<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Agendado</span>'
+              : '<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">Na Fila</span>'}
+          </td>
+          <td class="py-3.5 px-5 text-right">
+            <button onclick="triggerSinglePostSaleWhatsApp('${c.id}')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1.5 transition">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i> Disparar WhatsApp
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function triggerSinglePostSaleWhatsApp(clientId) {
+      const client = posVendaClients.find(c => c.id === clientId);
+      if (!client) return;
+      client.status = 'agendado';
+      renderPosVendaTable();
+
+      const msg = `Fala ${client.name}! Sua ${client.bike} (${client.plate}) completou ${client.days} dias com você! Passando para liberar seu atendimento na Oficina da Cidão Motos (${client.ruleTitle}). Vamos agendar para essa semana?`;
+      openWhatsAppModal(client.name, client.phone, msg);
+    }
+
+    function simulateWeeklyDispatch() {
+      posVendaClients.forEach(c => { c.status = 'agendado'; });
+      renderPosVendaTable();
+      document.getElementById('simulation-result-banner').classList.remove('hidden');
+      showToast('14 motos agendadas na oficina (+ R$ 4.860)!');
+    }
+
+    function openWhatsAppModal(buyerName, phone, message) {
+      document.getElementById('wa-modal-recipient').textContent = `${buyerName} • ${phone}`;
+      document.getElementById('wa-modal-message').textContent = message;
+      document.getElementById('whatsapp-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeWhatsAppModal() {
+      document.getElementById('whatsapp-modal').classList.add('hidden');
+    }
+
+    function copyWhatsAppMessage() {
+      const text = document.getElementById('wa-modal-message').textContent;
+      navigator.clipboard?.writeText(text);
+      showToast('Mensagem copiada!');
+    }
+
+    function openNewBikeModal() {
+      document.getElementById('new-bike-modal').classList.remove('hidden');
+    }
+
+    function closeNewBikeModal() {
+      document.getElementById('new-bike-modal').classList.add('hidden');
+    }
+
+    function handleAddNewBike(e) {
+      e.preventDefault();
+      const model = document.getElementById('nb-model').value.trim();
+      const plate = document.getElementById('nb-plate').value.trim().toUpperCase();
+      const salePrice = Number(document.getElementById('nb-sale').value);
+      const acquisitionCost = Number(document.getElementById('nb-cost').value);
+      const wsCost = Number(document.getElementById('nb-workshop').value);
+
+      const newBike = {
+        id: 'bike-' + Date.now(),
+        model,
+        category: 'Entrada Recente',
+        plate,
+        km: '10.000 km',
+        daysInYard: 1,
+        status: 'oficina',
+        photo: 'https://image1.mobiauto.com.br/images/api/images/v1.0/598580681/transform/fl_progressive,f_webp,q_85,w_640',
+        salePrice,
+        acquisitionCost,
+        docCost: 350,
+        feeCost: 300,
+        workshopItems: [{ name: 'Revisão de entrada (Oficina Cidão)', cost: wsCost }]
+      };
+
+      patioBikes.unshift(newBike);
+      closeNewBikeModal();
+      renderPatioBikes();
+      openDossierModal(newBike.id);
+    }
+
+    function resetDemoData() {
+      patioBikes = JSON.parse(JSON.stringify(INITIAL_PATIO_BIKES));
+      pipelineCards = JSON.parse(JSON.stringify(INITIAL_PIPELINE_CARDS));
+      posVendaClients = JSON.parse(JSON.stringify(INITIAL_POSVENDA_CLIENTS));
+      document.getElementById('simulation-result-banner').classList.add('hidden');
+      setPatioFilter('all');
+      setPosVendaFilter('all');
+      renderPatioBikes();
+      renderKanban();
+      renderPosVendaTable();
+      showToast('Dados restaurados!');
+    }
+
+    function showToast(text) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 text-white shadow-xl text-xs font-bold animate-pop';
+      toast.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i><span>${text}</span>`;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 3200);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPatioBikes();
+      renderKanban();
+      renderPosVendaTable();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
