@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIDÃO MOTOS | Fábrica de Sonhos — Central Comercial IA (Taquara - RJ)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#FACC15',
+              amber: '#F59E0B',
+              amberDark: '#D97706',
+              red: '#EF4444',
+              black: '#0A0B0E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Clean light scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+
+    /* WhatsApp Light Wallpaper Realista */
+    .wpp-light-bg {
+      background-color: #EFEAE2;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes pulseHighlightLight {
+      0% {
+        border-color: #F59E0B;
+        background-color: #FEF3C7;
+        transform: scale(1.01);
+      }
+      100% {
+        border-color: #E2E8F0;
+        background-color: #F8FAFC;
+        transform: scale(1);
+      }
+    }
+    .highlight-update {
+      animation: pulseHighlightLight 1.3s ease-out;
+    }
+
+    .typing-dot {
+      animation: bounceDot 1.4s infinite ease-in-out both;
+    }
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes bounceDot {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.35; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900 selection:bg-amber-400 selection:text-black">
+
+  <!-- ===================================================================== -->
+  <!-- TOPBAR FUNDO BRANCO COM LOGO ORIGINAL DO CLIENTE + ABAS               -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-[1480px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
+      
+      <!-- Logo Original da Cidão Motos -->
+      <div class="flex items-center gap-4 shrink-0">
+        <div class="h-13 w-32 rounded-xl bg-black border border-slate-800 overflow-hidden flex items-center justify-center px-2 py-1 shadow-md">
+          <img 
+            src="data:image/webp;base64,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"
+            alt="Logo Cidão Motos" 
+            class="h-11 w-full object-contain"
+          />
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-extrabold tracking-tight text-slate-900">
+              CIDÃO MOTOS <span class="text-amber-500">|</span> FÁBRICA DE SONHOS
+            </h1>
+            <span class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+              Unidade Taquara • RJ
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Central Comercial IA • @cidaomotosoficial • Financiamento 48x | Cartão 24x | Moto na Troca
+          </p>
+        </div>
+      </div>
+
+      <!-- Navegação Central em Abas (Light Mode) -->
+      <nav class="flex items-center bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+        <button onclick="switchTab('tab-simulador')" id="nav-simulador" class="px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 text-amber-400 shadow-sm">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>1. Simulador WhatsApp IA</span>
+        </button>
+        <button onclick="switchTab('tab-kanban')" id="nav-kanban" class="px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="columns" class="w-4 h-4"></i>
+          <span>2. Kanban de Fichas</span>
+        </button>
+        <button onclick="switchTab('tab-radar')" id="nav-radar" class="px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900">
+          <i data-lucide="radar" class="w-4 h-4 text-red-500"></i>
+          <span>3. Radar de Sonhos</span>
+        </button>
+      </nav>
+
+      <!-- Status & Reset -->
+      <div class="hidden xl:flex items-center gap-2.5">
+        <div class="flex items-center gap-2 text-xs font-medium text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>IA Ativa 24/7</span>
+        </div>
+        <button onclick="resetDemo()" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200 transition" title="Reiniciar Demonstração">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- FAIXA EXECUTIVA DE INDICADORES (FUNDO BRANCO LIMPO)                   -->
+  <!-- ===================================================================== -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-[1480px] mx-auto px-6 py-3.5 grid grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/80">
+        <div>
+          <span class="text-xs font-medium text-slate-500 block">Leads Hoje</span>
+          <span id="kpi-leads" class="text-2xl font-extrabold text-slate-900">38</span>
+        </div>
+        <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-md">Resposta &lt; 4s</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/80">
+        <div>
+          <span class="text-xs font-medium text-slate-500 block">Pré-Fichas Coletadas pela IA</span>
+          <span id="kpi-fichas" class="text-2xl font-extrabold text-amber-600">19</span>
+        </div>
+        <span class="text-[11px] font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md">CPF + Entrada OK</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 border border-slate-200/80">
+        <div>
+          <span class="text-xs font-medium text-slate-500 block">Motos na Troca Avaliadas</span>
+          <span id="kpi-trocas" class="text-2xl font-extrabold text-slate-900">7</span>
+        </div>
+        <span class="text-[11px] font-semibold text-sky-700 bg-sky-100 px-2.5 py-1 rounded-md">Fotos + KM</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 rounded-xl bg-red-50/60 border border-red-200">
+        <div>
+          <span class="text-xs font-semibold text-red-600 block">Vendas Recuperadas pelo Radar</span>
+          <span id="kpi-radar" class="text-2xl font-extrabold text-slate-900">4 <span class="text-sm font-bold text-red-600">(R$ 64.800)</span></span>
+        </div>
+        <div class="w-9 h-9 rounded-lg bg-red-100 text-red-600 flex items-center justify-center">
+          <i data-lucide="trending-up" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- CONTEÚDO PRINCIPAL (FUNDO CLARO #F8FAFC COM CARDS BRANCOS)            -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 max-w-[1480px] w-full mx-auto px-6 py-6">
+
+    <!-- =================================================================== -->
+    <!-- ABA 1: SIMULADOR AO VIVO DO AGENTE IA NO WHATSAPP                   -->
+    <!-- =================================================================== -->
+    <section id="tab-simulador" class="tab-pane block space-y-5">
+      
+      <!-- Barra de 5 Cenários Completos de Diálogo -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-sm font-bold text-slate-900">Escolha um diálogo completo para demonstrar ao vivo:</h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Diálogos reais de clientes da Taquara/Jacarepaguá com coleta completa de CPF, Nascimento, CNH, Entrada e Fotos da Troca.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="startScenario('score_baixo')" id="scen-score_baixo" class="scen-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-900 text-amber-400 shadow-sm">
+            1. Cliente c/ Score Baixo
+          </button>
+          <button onclick="startScenario('moto_troca')" id="scen-moto_troca" class="scen-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+            2. Moto na Troca (c/ Multa)
+          </button>
+          <button onclick="startScenario('sem_entrada')" id="scen-sem_entrada" class="scen-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+            3. Financiamento Sem Entrada
+          </button>
+          <button onclick="startScenario('cartao_24x')" id="scen-cartao_24x" class="scen-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+            4. Negativado → Cartão 24x
+          </button>
+          <button onclick="startScenario('motoboy_app')" id="scen-motoboy_app" class="scen-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+            5. Moto p/ App (IPVA 2026 Grátis)
+          </button>
+        </div>
+      </div>
+
+      <!-- 2 Colunas: Esquerda (WhatsApp Realista Claro) | Direita (Dossiê Extraído pela IA) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- COLUNA ESQUERDA: WHATSAPP (7 Colunas) -->
+        <div class="lg:col-span-7 bg-white border border-slate-200 rounded-2xl overflow-hidden flex flex-col h-[660px] shadow-sm">
+          
+          <!-- Header do WhatsApp -->
+          <div class="bg-[#008069] text-white px-5 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-black border border-amber-400 overflow-hidden flex items-center justify-center p-0.5 shrink-0">
+                <img 
+                  src="data:image/webp;base64,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"
+                  alt="Cidão Motos" 
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-white">Assistente Cidão Motos</h3>
+                <p class="text-[11px] text-emerald-100">Online • Estr. Marechal Miguel Salazar, 321 - Taquara</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span id="wpp-step-pill" class="text-[11px] font-mono bg-black/20 text-white px-2.5 py-1 rounded-md">
+                Mensagem 1/10
+              </span>
+              <button onclick="skipToNextMessage()" id="btn-skip-msg" class="px-2.5 py-1 rounded-md bg-amber-400 hover:bg-amber-300 text-black font-bold text-[11px] transition" title="Avançar para próxima mensagem imediatamente">
+                Avançar ⏭
+              </button>
+            </div>
+          </div>
+
+          <!-- Mensagens do Chat (Fundo Claro Clássico do WhatsApp) -->
+          <div id="wpp-messages" class="flex-1 wpp-light-bg p-5 overflow-y-auto space-y-3"></div>
+
+          <!-- Digitando... -->
+          <div id="wpp-typing" class="hidden bg-[#EFEAE2] px-5 py-2 border-t border-black/5">
+            <div class="inline-flex items-center gap-2 bg-white px-3.5 py-2 rounded-2xl rounded-tl-none text-xs text-slate-600 shadow-sm">
+              <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full typing-dot"></span>
+              <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full typing-dot"></span>
+              <span class="w-1.5 h-1.5 bg-emerald-600 rounded-full typing-dot"></span>
+              <span id="wpp-typing-label" class="ml-1 text-[11px] text-slate-500">Digitando...</span>
+            </div>
+          </div>
+
+          <!-- Pílulas de Perguntas Extras do Cliente (Para continuar o diálogo ao vivo!) -->
+          <div class="bg-[#F0F2F5] px-3 pt-2.5 pb-1 border-t border-slate-200 flex items-center gap-1.5 overflow-x-auto">
+            <span class="text-[10px] font-bold uppercase text-slate-400 shrink-0 mr-1">Perguntar +:</span>
+            <button type="button" onclick="triggerQuickQuestion('multa')" class="px-2.5 py-1 rounded-full bg-white hover:bg-amber-50 text-slate-700 border border-slate-300 text-[11px] font-medium shrink-0 transition">
+              "E se minha moto tiver multa/IPVA atrasado?"
+            </button>
+            <button type="button" onclick="triggerQuickQuestion('dois_cartoes')" class="px-2.5 py-1 rounded-full bg-white hover:bg-amber-50 text-slate-700 border border-slate-300 text-[11px] font-medium shrink-0 transition">
+              "Posso somar 2 cartões na entrada?"
+            </button>
+            <button type="button" onclick="triggerQuickQuestion('garantia')" class="px-2.5 py-1 rounded-full bg-white hover:bg-amber-50 text-slate-700 border border-slate-300 text-[11px] font-medium shrink-0 transition">
+              "Qual a garantia da loja?"
+            </button>
+            <button type="button" onclick="triggerQuickQuestion('endereco')" class="px-2.5 py-1 rounded-full bg-white hover:bg-amber-50 text-slate-700 border border-slate-300 text-[11px] font-medium shrink-0 transition">
+              "Onde fica na Taquara?"
+            </button>
+          </div>
+
+          <!-- Input do Chat -->
+          <form onsubmit="sendCustomChat(event)" class="bg-[#F0F2F5] p-3 flex items-center gap-2.5">
+            <input 
+              id="wpp-input" 
+              type="text" 
+              placeholder="Ou digite qualquer pergunta como cliente..." 
+              class="flex-1 bg-white text-slate-900 placeholder-slate-400 text-xs rounded-xl px-4 py-2.5 border border-slate-300 focus:outline-none focus:border-emerald-600"
+            />
+            <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#008069] hover:bg-[#006d59] text-white font-semibold text-xs flex items-center gap-1.5 transition shadow-sm">
+              <span>Enviar</span>
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            </button>
+          </form>
+
+        </div>
+
+        <!-- COLUNA DIREITA: DOSSIÊ EXTRAÍDO EM TEMPO REAL (5 Colunas - Fundo Branco) -->
+        <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-6 flex flex-col justify-between h-[660px] shadow-sm">
+          
+          <div>
+            <!-- Cabeçalho do Dossiê -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">Extração em Tempo Real</span>
+                <h3 class="text-base font-extrabold text-slate-900 mt-0.5">Dossiê do Cliente (IA)</h3>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-slate-500 block">Prontidão de Compra</span>
+                <span id="d-score-val" class="text-sm font-mono font-bold text-amber-600">15%</span>
+              </div>
+            </div>
+
+            <!-- Barra de Progresso -->
+            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden mt-3 mb-5">
+              <div id="d-score-bar" class="h-full bg-amber-500 transition-all duration-500" style="width: 15%"></div>
+            </div>
+
+            <!-- Campos Extraídos -->
+            <div class="grid grid-cols-2 gap-3">
+              
+              <div id="box-nome" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">Cliente &amp; Bairro</span>
+                <p id="d-nome" class="text-xs font-bold text-slate-900 mt-1 truncate">—</p>
+              </div>
+
+              <div id="box-tel" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">WhatsApp</span>
+                <p id="d-tel" class="text-xs font-mono font-bold text-slate-900 mt-1 truncate">—</p>
+              </div>
+
+              <div id="box-moto" class="col-span-2 bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] font-medium text-slate-500 block">Moto de Interesse</span>
+                  <p id="d-moto" class="text-sm font-extrabold text-slate-900 mt-0.5">—</p>
+                </div>
+                <span id="d-preco" class="text-xs font-mono font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg"></span>
+              </div>
+
+              <div id="box-mod" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">Modalidade</span>
+                <p id="d-mod" class="text-xs font-bold text-amber-700 mt-1">—</p>
+              </div>
+
+              <div id="box-entrada" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">Valor de Entrada</span>
+                <p id="d-entrada" class="text-xs font-mono font-bold text-emerald-700 mt-1">Aguardando...</p>
+              </div>
+
+              <div id="box-cpf" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">CPF &amp; Nascimento</span>
+                <p id="d-cpf" class="text-xs font-mono font-bold text-slate-900 mt-1">Aguardando...</p>
+              </div>
+
+              <div id="box-cnh" class="bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">Possui CNH Moto?</span>
+                <p id="d-cnh" class="text-xs font-bold text-slate-900 mt-1">Aguardando...</p>
+              </div>
+
+              <div id="box-troca" class="col-span-2 bg-slate-50 border border-slate-200 rounded-xl p-3 transition-all">
+                <span class="text-[11px] font-medium text-slate-500 block">Moto na Troca (Avaliação Prévia)</span>
+                <p id="d-troca" class="text-xs font-bold text-slate-800 mt-1">—</p>
+              </div>
+
+            </div>
+
+            <!-- Resumo p/ o Vendedor -->
+            <div class="mt-4 bg-amber-50/70 border border-amber-200 rounded-xl p-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 block">Resumo Gerado p/ o Vendedor:</span>
+              <p id="d-resumo" class="text-xs text-slate-700 mt-1 leading-relaxed">
+                Aguardando a IA concluir a coleta dos dados no WhatsApp...
+              </p>
+            </div>
+          </div>
+
+          <!-- Rodapé do Dossiê -->
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between gap-3">
+            <span class="text-xs font-medium text-slate-500 truncate" id="d-status-footer">
+              Extração ativa
+            </span>
+            <button onclick="sendToKanban()" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold flex items-center gap-2 transition shrink-0 shadow-sm">
+              <span>Ver no Kanban do Vendedor</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================== -->
+    <!-- ABA 2: KANBAN DE FICHAS & SIMULAÇÃO BANCÁRIA (FUNDO BRANCO)         -->
+    <!-- =================================================================== -->
+    <section id="tab-kanban" class="tab-pane hidden space-y-5">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-900">Kanban de Fichas &amp; Simulação Bancária (Visão do Vendedor)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Clientes do Rio de Janeiro qualificados pela IA com CPF, Entrada e Moto na Troca prontos.</p>
+        </div>
+
+        <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
+          <button onclick="setKanbanFilter('all')" id="kf-all" class="kf-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-amber-400 transition">
+            Todos
+          </button>
+          <button onclick="setKanbanFilter('troca')" id="kf-troca" class="kf-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+            Com Moto na Troca
+          </button>
+          <button onclick="setKanbanFilter('financiamento')" id="kf-financiamento" class="kf-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+            Financiamento 48x
+          </button>
+          <button onclick="setKanbanFilter('cartao')" id="kf-cartao" class="kf-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+            Cartão 24x
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Colunas Kanban -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-start">
+        
+        <!-- Coluna 1 -->
+        <div class="bg-slate-100/80 border border-slate-200 rounded-2xl p-4">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-200">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+              <h3 class="text-xs font-bold text-slate-800">1. Qualificando na IA (WhatsApp)</h3>
+            </div>
+            <span id="kcount-1" class="text-xs font-mono font-bold text-slate-600 bg-white px-2 py-0.5 rounded-md border border-slate-200">2</span>
+          </div>
+          <div id="kcol-1" class="space-y-3"></div>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div class="bg-amber-50/50 border border-amber-200 rounded-2xl p-4">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-amber-200">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <h3 class="text-xs font-bold text-slate-900">2. Pronto p/ Simular no Banco</h3>
+            </div>
+            <span id="kcount-2" class="text-xs font-mono font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md">2</span>
+          </div>
+          <div id="kcol-2" class="space-y-3"></div>
+        </div>
+
+        <!-- Coluna 3 -->
+        <div class="bg-emerald-50/40 border border-emerald-200 rounded-2xl p-4">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-emerald-200">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <h3 class="text-xs font-bold text-slate-900">3. Ficha Aprovada / Agendado Taquara</h3>
+            </div>
+            <span id="kcount-3" class="text-xs font-mono font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">2</span>
+          </div>
+          <div id="kcol-3" class="space-y-3"></div>
+        </div>
+
+        <!-- Coluna 4 -->
+        <div class="bg-red-50/40 border border-red-200 rounded-2xl p-4">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-red-200">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+              <h3 class="text-xs font-bold text-slate-900">4. Sem Estoque → Enviado pro Radar</h3>
+            </div>
+            <span id="kcount-4" class="text-xs font-mono font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-md">2</span>
+          </div>
+          <div id="kcol-4" class="space-y-3"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =================================================================== -->
+    <!-- ABA 3: "RADAR DE SONHOS" (MATCH AUTOMÁTICO DE ESTOQUE)              -->
+    <!-- =================================================================== -->
+    <section id="tab-radar" class="tab-pane hidden space-y-6">
+      
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-red-600">O Grande Diferencial Comercial</span>
+          <h2 class="text-lg font-extrabold text-slate-900 mt-0.5">
+            Radar de Sonhos — Clientes que procuravam uma moto que não tinha no pátio ou precisavam de outra faixa de entrada
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">
+            Assim que uma moto entra na unidade Taquara, o Radar cruza modelo e valor de entrada com os clientes antigos e avisa no WhatsApp antes de ir pro Instagram.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 bg-slate-50 px-4 py-3 rounded-xl border border-slate-200">
+          <i data-lucide="database" class="w-5 h-5 text-amber-600"></i>
+          <div>
+            <span class="text-xs font-bold text-slate-900 block">412 Clientes Salvos no Radar</span>
+            <span class="text-[11px] text-slate-500">Prontos para reativação automática</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid 2 Colunas -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- ESQUERDA: Formulário Rápido (5 Colunas) -->
+        <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900">Cadastrar Nova Moto que Chegou no Pátio</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Teste com a Honda PCX 160 2022 ou clique em outro modelo:</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="setRadarBike('Honda PCX 160 2022', '16.900', '2.500')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 hover:bg-amber-200 transition">
+              Honda PCX 160 2022
+            </button>
+            <button type="button" onclick="setRadarBike('Honda CG 160 Titan 2023', '17.500', '2.500')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">
+              CG 160 Titan 2023
+            </button>
+            <button type="button" onclick="setRadarBike('Yamaha XTZ 250 Lander 2024', '24.500', '4.000')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 transition">
+              XTZ 250 Lander 2024
+            </button>
+          </div>
+
+          <form onsubmit="runRadarMatch(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1.5">Modelo da Moto</label>
+              <input id="r-modelo" type="text" value="Honda PCX 160 2022" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-bold text-slate-900 focus:outline-none focus:border-amber-500" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1.5">Preço (R$)</label>
+                <input id="r-preco" type="text" value="16.900" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-mono font-bold text-slate-900 focus:outline-none focus:border-amber-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-amber-700 mb-1.5">Entrada Mínima Sugerida (R$)</label>
+                <input id="r-entrada" type="text" value="2.500" required class="w-full bg-amber-50/60 border border-amber-300 rounded-xl px-4 py-2.5 text-sm font-mono font-bold text-amber-900 focus:outline-none focus:border-amber-500" />
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md">
+              <i data-lucide="radar" class="w-4 h-4"></i>
+              <span>Dar Entrada no Estoque e Acionar Radar</span>
+            </button>
+          </form>
+
+          <!-- Prévia da Mensagem Personalizada -->
+          <div class="pt-4 border-t border-slate-200">
+            <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block mb-2">
+              Prévia da Mensagem Personalizada (WhatsApp)
+            </span>
+            <div class="bg-[#D9FDD3] rounded-2xl rounded-tr-none p-4 text-xs text-slate-900 leading-relaxed border border-emerald-300 shadow-sm">
+              <p id="r-preview-msg">
+                "Fala <strong>Thiago Oliveira</strong>! Acabou de entrar aqui na Cidão Motos da Taquara uma <strong>Honda PCX 160 2022</strong> que encaixa naquela sua entrada de R$ <strong>2.500</strong>. Quer ver o vídeo dela antes de ir pro Instagram?"
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DIREITA: 5 Clientes Encontrados (7 Colunas) -->
+        <div class="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm min-h-[540px] flex flex-col justify-between">
+          
+          <div id="r-loading" class="hidden my-auto py-16 text-center space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mx-auto animate-spin">
+              <i data-lucide="loader-2" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-base font-extrabold text-slate-900">Cruzando dados do estoque com a lista de espera...</h4>
+            <p class="text-xs font-mono text-amber-700">Encontrando clientes compatíveis com essa faixa de entrada...</p>
+          </div>
+
+          <div id="r-results" class="flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+                <div>
+                  <h3 class="text-base font-extrabold text-slate-900">5 Clientes Reais da Lista de Espera Encontrados</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">Clique em um cliente para ver a prévia da mensagem personalizada:</p>
+                </div>
+                <span id="r-bike-tag" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-amber-100 text-amber-900">
+                  Honda PCX 160 2022
+                </span>
+              </div>
+
+              <div id="r-client-list" class="space-y-2.5 mt-4"></div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 space-y-3">
+              <div id="r-live-reply" class="hidden bg-emerald-50 border border-emerald-300 rounded-xl p-3.5 flex items-center justify-between gap-3 animate-in">
+                <div class="text-xs">
+                  <span class="font-bold text-emerald-800 block">💬 Thiago Oliveira respondeu no WhatsApp:</span>
+                  <span class="text-slate-800">"Caraca irmão, manda o vídeo dessa PCX 2022 agora! Já tô com os R$ 2.500 no PIX e passo aí na Taquara hoje às 17h!"</span>
+                </div>
+                <span class="text-[11px] font-mono font-bold text-emerald-700 shrink-0">Agora</span>
+              </div>
+
+              <button onclick="dispatchRadarToAll()" id="btn-radar-send" class="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span id="btn-radar-send-label">Disparar Aviso Automático no WhatsApp dos 5 Clientes</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL FICHA COMPLETA (FUNDO BRANCO)                                   -->
+  <!-- ===================================================================== -->
+  <div id="modal-lead" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl animate-in">
+      
+      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+        <div>
+          <h3 id="m-nome" class="text-base font-extrabold text-slate-900">Nome do Cliente</h3>
+          <p id="m-sub" class="text-xs text-slate-500 mt-0.5">Taquara - RJ • (21) 99999-9999</p>
+        </div>
+        <button onclick="closeLeadModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between">
+          <div>
+            <span class="text-[11px] font-medium text-slate-500 block">Moto Desejada</span>
+            <p id="m-moto" class="text-sm font-extrabold text-slate-900 mt-0.5">—</p>
+          </div>
+          <span id="m-mod" class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-lg">—</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <span class="text-[11px] font-medium text-slate-500 block">CPF &amp; Nascimento</span>
+            <p id="m-cpf" class="text-xs font-mono font-bold text-slate-900 mt-1">—</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <span class="text-[11px] font-medium text-slate-500 block">Possui CNH</span>
+            <p id="m-cnh" class="text-xs font-bold text-slate-900 mt-1">—</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <span class="text-[11px] font-medium text-slate-500 block">Entrada Disponível</span>
+            <p id="m-entrada" class="text-xs font-mono font-bold text-emerald-700 mt-1">—</p>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+            <span class="text-[11px] font-medium text-slate-500 block">Moto na Troca</span>
+            <p id="m-troca" class="text-xs font-bold text-sky-700 mt-1">—</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <span class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block mb-2">Pré-Simulação de Parcelas</span>
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-white border border-slate-200 p-2.5 rounded-lg">
+              <span class="text-[10px] text-slate-500 block">Financiamento 48x</span>
+              <strong id="m-sim48" class="text-xs font-mono text-slate-900">48x R$ 529</strong>
+            </div>
+            <div class="bg-white border border-amber-300 p-2.5 rounded-lg">
+              <span class="text-[10px] text-amber-700 block">Financiamento 36x</span>
+              <strong id="m-sim36" class="text-xs font-mono text-amber-800">36x R$ 635</strong>
+            </div>
+            <div class="bg-white border border-slate-200 p-2.5 rounded-lg">
+              <span class="text-[10px] text-slate-500 block">Cartão 24x</span>
+              <strong id="m-sim24" class="text-xs font-mono text-emerald-700">24x R$ 720</strong>
+            </div>
+          </div>
+        </div>
+
+        <p id="m-notas" class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-200"></p>
+      </div>
+
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+        <button onclick="copyModalLead()" class="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-xs font-bold text-slate-700 flex items-center gap-1.5 transition">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-amber-600"></i>
+          <span>Copiar CPF e Ficha</span>
+        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="advanceModalLead()" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 text-xs font-bold transition">
+            Avançar Etapa
+          </button>
+          <button onclick="closeLeadModal()" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-xs font-semibold text-slate-700">
+            Fechar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 text-xs font-medium animate-in">
+    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+    <span id="toast-msg"></span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT VANILLA: 5 DIÁLOGOS COMPLETOS E PROFUNDOS + KANBAN + RADAR -->
+  <!-- ===================================================================== -->
+  <script>
+    // 1. OS 5 CENÁRIOS DE DIÁLOGOS COMPLETOS (MUITO MAIS LONGO E DETALHADO)
+    const scenarios = {
+      score_baixo: {
+        lead: {
+          id: 'sim-1',
+          nome: 'Lucas Martins',
+          bairro: 'Curicica / Taquara',
+          tel: '(21) 98412-5590',
+          moto: 'Honda CG 160 Titan 2023',
+          preco: 'R$ 17.900',
+          mod: 'Financiamento 48x (PIX + Cartão)',
+          cpf: '148.920.337-19 • 14/05/1996',
+          cnh: 'Sim (Cat. AB)',
+          entrada: 'R$ 3.500 (R$ 2.500 PIX + R$ 1.000 Cartão)',
+          troca: 'Sem moto na troca',
+          temTroca: false,
+          filtro: 'financiamento',
+          col: 2,
+          sim48: '48x R$ 529',
+          sim36: '36x R$ 635',
+          sim24: '24x R$ 720',
+          notas: 'Tinha medo de reprovar por score baixo (tentou em outra loja antes). IA somou R$ 2.500 PIX + R$ 1.000 no cartão para fechar R$ 3.500 de entrada e coletou CPF + CNH AB.'
+        },
+        steps: [
+          {
+            from: 'client',
+            text: 'Boa tarde! Vi no Instagram de vcs a CG 160 Titan 2023 vermelha. Ainda tá aí na loja da Taquara?',
+            time: '14:20',
+            update: {
+              nome: 'Lucas Martins • Curicica',
+              tel: '(21) 98412-5590',
+              moto: 'Honda CG 160 Titan 2023',
+              preco: 'R$ 17.900',
+              score: 20
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Fala Lucas! Boa tarde, irmão! 🏍️ Aqui é o Assistente da **Cidão Motos | Fábrica de Sonhos (Unidade Taquara)**!\n\nA **Honda CG 160 Titan 2023** está disponível no pátio sim! Único dono, revisada com garantia da loja e IPVA 2026 pago.\n\nVocê pretende pegar ela no **Financiamento (até 48x)**, no **Cartão (até 24x)** ou tem **moto para dar na troca**?',
+            time: '14:20',
+            update: { score: 30 }
+          },
+          {
+            from: 'client',
+            text: 'Seria no financiamento mesmo, não tenho moto na troca. Mas vou ser sincero contigo: mês passado tentei passar ficha em outra loja e recusou pq meu score tá na faixa de 580... Será que aí aprova?',
+            time: '14:21',
+            update: {
+              mod: 'Financiamento 48x (Análise Score)',
+              troca: 'Não possui moto na troca',
+              score: 45
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Lucas, que bom que você falou isso! Aqui na **Cidão Motos** nós somos referência em aprovação na Taquara exatamente por isso.\n\nQuando uma loja comum joga seu CPF de qualquer jeito num banco só, acaba travando. Aqui nós analisamos sua ficha em **5 financeiras parceiras (BV, Santander, Pan, Omni e Daycoval)** montando o perfil certo!\n\nMe diz uma coisa: **quanto você consegue dar de entrada hoje** e **você tem CNH de moto (Cat. A)?**',
+            time: '14:21',
+            update: { score: 55 }
+          },
+          {
+            from: 'client',
+            text: 'Tenho CNH AB sim! No PIX hoje eu tenho R$ 2.500 guardados. Será que dá com esse valor?',
+            time: '14:22',
+            update: {
+              cnh: 'Sim • Categoria AB',
+              entrada: 'R$ 2.500 (PIX)',
+              score: 70
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Com CNH AB + R$ 2.500 já temos jogo! Mas vou te dar uma dica de ouro da nossa mesa: se a gente chegar em **R$ 3.500 de entrada (20% da moto)**, o sistema dos bancos libera aprovação automática mesmo com score de 580!\n\nVocê teria **R$ 1.000 de limite em algum cartão de crédito** pra gente parcelar esse complemento em até 24x junto com os R$ 2.500 do PIX?',
+            time: '14:22',
+            update: { score: 80 }
+          },
+          {
+            from: 'client',
+            text: 'Caraca, dá pra fazer isso?! Tenho sim, no meu cartão Inter tem R$ 1.200 de limite! Aí fecha os R$ 3.500 de entrada tranquilo!',
+            time: '14:23',
+            update: {
+              entrada: 'R$ 3.500 (R$ 2.5k PIX + R$ 1k Cartão)',
+              mod: 'Financ. 48x + Compl. Cartão',
+              score: 90
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Perfeito, Lucas! Agora sua ficha ficou fortíssima pro banco aprovar de primeira! 🚀\n\nMe envia por favor seu **CPF** e sua **Data de Nascimento** pra nossa mesa já puxar a simulação em 36x e 48x:',
+            time: '14:23',
+            update: {}
+          },
+          {
+            from: 'client',
+            text: 'CPF 148.920.337-19 e data de nascimento 14/05/1996. Trabalho registrado como técnico de refrigeração.',
+            time: '14:24',
+            update: {
+              cpf: '148.920.337-19 • 14/05/1996',
+              score: 98,
+              resumo: '✅ Lucas Martins (Curicica) | Quer: CG 160 Titan 2023 | Entrada: R$ 2.500 PIX + R$ 1.000 Cartão = R$ 3.500 | CNH AB + CLT | CPF: 148.920.337-19 (14/05/1996). Rodar Santander/BV!',
+              footer: '✅ Ficha 100% qualificada e enviada pro vendedor!'
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Show de bola, Lucas! ✅ Trabalhando registrado + CNH AB + R$ 3.500 de entrada, pode comemorar que essa **Titan 2023** já tem dono!\n\nAcabei de enviar seu dossiê completo pro nosso consultor aqui da **Estrada Marechal Miguel Salazar, 321 (Taquara)**. Em 5 minutinhos ele te chama com o valor exato das parcelas!',
+            time: '14:24',
+            update: {}
+          }
+        ]
+      },
+
+      moto_troca: {
+        lead: {
+          id: 'sim-2',
+          nome: 'Rodrigo Azevedo',
+          bairro: 'Freguesia (JPA)',
+          tel: '(21) 99704-8821',
+          moto: 'Yamaha FZ25 Fazer ABS 2023',
+          preco: 'R$ 21.900',
+          mod: 'Moto na Troca + Financ. 36x',
+          cpf: '092.641.887-05 • 22/08/1991',
+          cnh: 'Sim (Cat. AB)',
+          entrada: 'Fan 160 2019 (~R$ 11.800)',
+          troca: 'Entra: Fan 160 2019 (38.4k km • 1 multa)',
+          temTroca: true,
+          filtro: 'troca',
+          col: 2,
+          sim48: '48x R$ 395',
+          sim36: '36x R$ 478',
+          sim24: '24x R$ 610',
+          notas: 'Quer trocar Honda Fan 160 2019 (38.400 km, tem R$ 420 de multa/IPVA que serão abatidos na avaliação) pela FZ25 Fazer 2023 e financiar a volta em 36x.'
+        },
+        steps: [
+          {
+            from: 'client',
+            text: 'Fala rapaziada da Cidão Motos! Tô namorando aquela Yamaha FZ25 Fazer 2023 azul de vcs. Pegam minha Fan 160 2019 como entrada?',
+            time: '15:10',
+            update: {
+              nome: 'Rodrigo Azevedo • Freguesia',
+              tel: '(21) 99704-8821',
+              moto: 'Yamaha FZ25 Fazer ABS 2023',
+              preco: 'R$ 21.900',
+              mod: 'Moto na Troca + Financiamento',
+              score: 25
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Fala Rodrigo! Tudo tranquilo, irmão? 🏍️ Aqui é o Assistente da **Cidão Motos | Fábrica de Sonhos (Taquara)**!\n\nEssa **FZ25 Fazer ABS 2023 Azul** tá zero demais aqui na loja (R$ 21.900)!\n\nE **aceitamos sua Fan 160 2019 como entrada sim!** Ela entra quitando grande parte do valor e você financia ou passa no cartão só a diferença.',
+            time: '15:10',
+            update: {
+              troca: 'Honda CG 160 Fan 2019 (Em triagem)',
+              score: 40
+            }
+          },
+          {
+            from: 'client',
+            text: 'Pô, que notícia boa! Mas deixa eu perguntar: minha Fan 2019 tá no meu nome, só que tem uma multa de R$ 293 e falta a última cota do IPVA. Vcs pegam mesmo assim?',
+            time: '15:11',
+            update: { score: 55 }
+          },
+          {
+            from: 'ai',
+            text: 'Pegamos sim, Rodrigo! **Aceitamos sua moto na troca mesmo com débitos!** 🤝\n\nA gente desconta apenas o valor exato da multa/IPVA na avaliação e a própria despachante da Cidão Motos já regulariza tudo. Você não precisa esquentar a cabeça!\n\nMe conta: **qual a KM atual da sua Fan 2019, como estão os pneus e você consegue mandar 2 fotos dela aqui?**',
+            time: '15:11',
+            update: {
+              troca: 'Fan 160 2019 (Possui R$ 293 multa • Loja assume)',
+              score: 65
+            }
+          },
+          {
+            from: 'client',
+            text: 'Caramba, facilitou minha vida! Ela tá com 38.400 km, dois pneus Michelin novos e relação trocada mês passado. Olha as fotos dela aí:',
+            photo: 'Foto_Honda_Fan_160_2019_Preta.jpg • 38.400 km',
+            time: '15:12',
+            update: {
+              entrada: 'Moto na Troca (Fan 160 2019)',
+              troca: 'Fan 160 2019 • 38.4k km • Pneus novos • Foto OK',
+              score: 82
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Acabei de receber a foto aqui, Rodrigo! Sua Fan 2019 tá conservada demais, moto de procedência! 👏\n\nE a diferença para a **FZ25 Fazer 2023**, você prefere simular em **36x / 48x no financiamento bancário** ou no **cartão em até 24x**?',
+            time: '15:12',
+            update: {}
+          },
+          {
+            from: 'client',
+            text: 'Quero simular a diferença em 36x no financiamento bancário. Tenho CNH AB tudo certinho.',
+            time: '15:13',
+            update: {
+              mod: 'Troca + Volta em 36x no Banco',
+              cnh: 'Sim • Categoria AB',
+              score: 90
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Perfeito! Como sua Fan 2019 entra cobrindo mais da metade do valor da Fazer 250, sua taxa de juros no banco vai ser a mais baixa da tabela! 🔥\n\nMe passa seu **CPF** e **Data de Nascimento** pra eu mandar junto com as fotos da sua moto pro vendedor:',
+            time: '15:13',
+            update: {}
+          },
+          {
+            from: 'client',
+            text: 'CPF 092.641.887-05, nasci em 22/08/1991. Consigo encostar aí na Taquara amanhã às 10h pra vcs verem minha moto ao vivo!',
+            time: '15:14',
+            update: {
+              cpf: '092.641.887-05 • 22/08/1991',
+              score: 99,
+              resumo: '✅ Rodrigo Azevedo (Freguesia) | Quer: FZ25 Fazer 2023 | Entra: Fan 160 2019 (38.4k km, foto OK, abater 1 multa) | Volta: 36x | CPF: 092.641.887-05 (22/08/1991) | Visita amanhã 10h!',
+              footer: '✅ Dossiê de Troca + Financiamento pronto!'
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Agendado, Rodrigo! ✅ Já subi sua ficha e as fotos da **Fan 160 2019** pro nosso consultor e pro avaliador da **Cidão Motos Taquara** (próximo ao restaurante Laço de Ouro). Ele já vai te chamar com a prévia das 36x!',
+            time: '15:14',
+            update: {}
+          }
+        ]
+      },
+
+      sem_entrada: {
+        lead: {
+          id: 'sim-3',
+          nome: 'Marcelo Souza',
+          bairro: 'Praça Seca - RJ',
+          tel: '(21) 97155-3094',
+          moto: 'Yamaha XTZ 250 Lander 2024',
+          preco: 'R$ 24.500',
+          mod: 'Entrada Cartão 24x + Financ. 48x',
+          cpf: '133.509.717-44 • 09/11/1998',
+          cnh: 'Sim (Cat. A)',
+          entrada: 'R$ 3.000 (Parcelado no Cartão)',
+          troca: 'Sem moto na troca',
+          temTroca: false,
+          filtro: 'cartao',
+          col: 2,
+          sim48: '48x R$ 645',
+          sim36: '36x R$ 780',
+          sim24: '24x R$ 910',
+          notas: 'Queria XTZ 250 Lander 2024 sem entrada em dinheiro. IA destravou R$ 3.000 de entrada parcelado no cartão de crédito em até 24x + saldo financiado em 48x.'
+        },
+        steps: [
+          {
+            from: 'client',
+            text: 'Boa tarde! Vi o anúncio da Yamaha Lander 250 2024 Azul falando da possibilidade de financiamento sem entrada. Como funciona? Tô sem dinheiro à vista agora.',
+            time: '16:02',
+            update: {
+              nome: 'Marcelo Souza • Praça Seca',
+              tel: '(21) 97155-3094',
+              moto: 'Yamaha XTZ 250 Lander 2024',
+              preco: 'R$ 24.500',
+              mod: 'Pediu Zero Entrada (48x)',
+              score: 25
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Fala Marcelo! Seja bem-vindo à **Cidão Motos | Fábrica de Sonhos (Taquara)**! 🏍️\n\nA **Yamaha Lander 250 2024** está impecável, único dono e IPVA 2026 pago!\n\nSobre o **Sem Entrada**: nós rodamos sim a análise 100% financiada nos bancos para quem possui **CNH de moto (Cat. A)** e bom score. Você possui CNH A?',
+            time: '16:02',
+            update: { score: 40 }
+          },
+          {
+            from: 'client',
+            text: 'Tenho CNH A sim, tirei tem 3 anos. Mas se o banco pedir alguma entrada eu não tenho dinheiro no PIX hoje...',
+            time: '16:03',
+            update: {
+              cnh: 'Sim • Categoria A (3 anos)',
+              troca: 'Não possui moto na troca',
+              score: 55
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Aí é que entra o diferencial da **Cidão Motos**, Marcelo! 💡\n\nMesmo que você não tenha 1 real no PIX hoje, se você tiver **Cartão de Crédito**, a gente consegue passar **R$ 2.500 ou R$ 3.000 de entrada parcelado em até 24x no cartão**!\n\nPra financeira, entra como se você estivesse dando dinheiro à vista, o que **aprova sua ficha na hora e derruba o valor da parcela em 48x**! Você tem algum cartão com limite disponível?',
+            time: '16:03',
+            update: {
+              mod: 'Zero PIX → Entrada no Cartão 24x + 48x',
+              score: 72
+            }
+          },
+          {
+            from: 'client',
+            text: 'Mentira que dá pra parcelar a entrada em até 24x no cartão?! No meu Nubank eu tenho R$ 3.000 de limite livre sim! Aí fica bom demais pq não me descapitaliza!',
+            time: '16:04',
+            update: {
+              entrada: 'R$ 3.000 (no Cartão até 24x)',
+              score: 86
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Exatamente, Marcelo! Você sai de **Lander 250 2024** hoje sem mexer no seu caixa! 🙌\n\nPra eu já testar tanto o **Zero Entrada** quanto o plano com **R$ 3.000 no cartão + 48x** pra você comparar: me envia seu **CPF** e **Data de Nascimento**:',
+            time: '16:04',
+            update: {}
+          },
+          {
+            from: 'client',
+            text: 'Top demais! CPF 133.509.717-44 e nasci em 09/11/1998.',
+            time: '16:05',
+            update: {
+              cpf: '133.509.717-44 • 09/11/1998',
+              score: 97,
+              resumo: '✅ Marcelo Souza (Praça Seca) | Quer: XTZ 250 Lander 2024 (R$ 24.500) | CNH A | Entrada destravada: R$ 3.000 no Cartão + Saldo 48x | CPF: 133.509.717-44 (09/11/1998).',
+              footer: '✅ Cliente sem PIX convertido com Cartão!'
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Tudo anotado, Marcelo! ✅ Já passei seu CPF para nosso especialista aqui da **Cidão Motos Taquara** rodar as duas opções na financeira. Em poucos minutos ele te manda os valores no WhatsApp!',
+            time: '16:05',
+            update: {}
+          }
+        ]
+      },
+
+      cartao_24x: {
+        lead: {
+          id: 'sim-4',
+          nome: 'patrícia Guedes',
+          bairro: 'Pechincha (JPA)',
+          tel: '(21) 97601-2280',
+          moto: 'Honda PCX 160 DLX 2022',
+          preco: 'R$ 16.900',
+          mod: 'PIX + 2 Cartões em 24x (Sem Banco)',
+          cpf: '154.889.207-90 • 12/10/1992',
+          cnh: 'Sim (Cat. A)',
+          entrada: 'R$ 4.900 PIX + R$ 12.000 no Cartão 24x',
+          troca: 'Sem moto na troca',
+          temTroca: false,
+          filtro: 'cartao',
+          col: 3,
+          sim48: 'Não utiliza banco',
+          sim36: 'Não utiliza banco',
+          sim24: '24x R$ 638 (Nos 2 Cartões)',
+          notas: 'Cliente com restrição no CPF (SPC), porém tem R$ 4.900 no PIX + 2 cartões somando R$ 12.000. IA converteu a venda 100% na maquininha da loja em 24x sem depender de banco!'
+        },
+        steps: [
+          {
+            from: 'client',
+            text: 'Oi boa tarde! Quero muito comprar uma PCX 160, mas estou com uma restrição no nome por causa de uma dívida antiga. Tem algum jeito de comprar sem ser por banco?',
+            time: '11:15',
+            update: {
+              nome: 'Patrícia Guedes • Pechincha',
+              tel: '(21) 97601-2280',
+              moto: 'Honda PCX 160 2022',
+              preco: 'R$ 16.900',
+              mod: 'Restrição CPF → Avaliando Cartão',
+              score: 30
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Olá Patrícia! Boa tarde! 😊 Aqui na **Cidão Motos | Fábrica de Sonhos (Taquara)** tem jeito sim!\n\nQuando o cliente está com restrição no CPF, nós fazemos a venda direto no **Cartão de Crédito em até 24x**! Não passa por consulta de SPC/Serasa e você sai com a moto na mesma hora!\n\nVocê tem valor de entrada no PIX e limite em cartão (pode ser mais de um cartão ou cartão de familiar)?',
+            time: '11:15',
+            update: {
+              mod: 'Parcelamento Direto no Cartão 24x',
+              score: 55
+            }
+          },
+          {
+            from: 'client',
+            text: 'Sério que pode somar dois cartões?! Eu tenho R$ 4.900 no PIX e tenho dois cartões (um com R$ 7.000 e outro do meu marido com R$ 5.000, dando R$ 12.000 de limite)!',
+            time: '11:16',
+            update: {
+              entrada: 'R$ 4.900 PIX + R$ 12.000 (2 Cartões)',
+              troca: 'Não possui moto na troca',
+              score: 88
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Patrícia, **R$ 4.900 no PIX + R$ 12.000 nos dois cartões fecha EXATAMENTE os R$ 16.900 da nossa Honda PCX 160 2022!** 🎉\n\nNão precisa de aprovação de banco nenhum: você passa os R$ 4.900 no PIX, divide os R$ 12.000 em até **24x nos dois cartões** e já sai pilotando sua PCX hoje mesmo aqui da Taquara!',
+            time: '11:16',
+            update: { score: 94 }
+          },
+          {
+            from: 'client',
+            text: 'Meu Deus que bênção!! Meu CPF pra nota fiscal é 154.889.207-90 (12/10/1992) e tenho CNH A. Posso ir aí às 15h fechar?',
+            time: '11:17',
+            update: {
+              cpf: '154.889.207-90 • 12/10/1992',
+              cnh: 'Sim • Categoria A',
+              score: 100,
+              resumo: '✅ VENDA DIRETA CARTÃO 24X | Patrícia Guedes (Pechincha) | Moto: Honda PCX 160 2022 (R$ 16.900) | R$ 4.900 PIX + R$ 12.000 em 2 cartões (24x) | Visita hoje às 15h!',
+              footer: '✅ Venda recuperada no Cartão 24x!'
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Combinadíssimo, Patrícia! ✅ Já deixei a **PCX 160 2022** separada no seu nome e avisei nosso vendedor que você e seu esposo chegam às 15h aqui na **Estrada Marechal Miguel Salazar, 321 - Taquara**!',
+            time: '11:17',
+            update: {}
+          }
+        ]
+      },
+
+      motoboy_app: {
+        lead: {
+          id: 'sim-5',
+          nome: 'Diego Nascimento',
+          bairro: 'Taquara - RJ',
+          tel: '(21) 96844-1920',
+          moto: 'Yamaha XTZ 150 Crosser Z 2024',
+          preco: 'R$ 20.990',
+          mod: 'Financiamento 48x (Parcela Baixa)',
+          cpf: '142.771.307-11 • 05/03/1999',
+          cnh: 'Sim (Cat. AB • Exerce Ativ. Remunerada)',
+          entrada: 'R$ 3.000 (PIX)',
+          troca: 'Sem moto na troca',
+          temTroca: false,
+          filtro: 'financiamento',
+          col: 2,
+          sim48: '48x R$ 489',
+          sim36: '36x R$ 585',
+          sim24: '24x R$ 698',
+          notas: 'Roda em app (Uber Moto / iFood) na Taquara e Barra. Quer Crosser Z 2024 KM baixo com IPVA 2026 grátis para pegar no mesmo dia.'
+        },
+        steps: [
+          {
+            from: 'client',
+            text: 'Salve! Moro aqui na Taquara mesmo e rodo de Uber Moto e iFood. Vi a XTZ 150 Crosser Z 2024 por R$ 20.990. Ela tá pronta pra pegar rápido e já vem com IPVA 2026 pago?',
+            time: '10:05',
+            update: {
+              nome: 'Diego Nascimento • Taquara',
+              tel: '(21) 96844-1920',
+              moto: 'Yamaha XTZ 150 Crosser Z 2024',
+              preco: 'R$ 20.990',
+              mod: 'Financiamento 48x (Uso Trabalho)',
+              score: 35
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Salve Diego! Vizinho nosso aqui da Taquara! 🏍️💨\n\nA **Yamaha Crosser 150 Z 2024** está com KM baixíssimo, revisada com garantia da loja e **SIM: IPVA 2026 totalmente pago!** É aprovar a ficha e já sair faturando hoje mesmo!\n\nQuanto você planeja dar de **entrada** e você tem **CNH A**?',
+            time: '10:05',
+            update: { score: 55 }
+          },
+          {
+            from: 'client',
+            text: 'Tenho CNH AB com EAR (Exerce Atividade Remunerada) e tenho R$ 3.000 no PIX pra dar de entrada agora.',
+            time: '10:06',
+            update: {
+              entrada: 'R$ 3.000 (PIX Imediato)',
+              cnh: 'Sim • Cat. AB c/ EAR',
+              troca: 'Não possui moto na troca',
+              score: 82
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Show, Diego! Com R$ 3.000 de entrada e CNH ativa, a parcela em 48x fica super leve — você paga a parcela do mês com 3 dias rodando no app! 🚀\n\nMe manda seu **CPF** e **Data de Nascimento** pra gente já aprovar sua ficha antes de você vir pra loja:',
+            time: '10:06',
+            update: {}
+          },
+          {
+            from: 'client',
+            text: 'CPF 142.771.307-11 e nasci em 05/03/1999. Assim que aprovar já desço aí na Marechal Miguel Salazar!',
+            time: '10:07',
+            update: {
+              cpf: '142.771.307-11 • 05/03/1999',
+              score: 98,
+              resumo: '✅ Diego Nascimento (Mora na Taquara) | Quer: Crosser 150 Z 2024 (R$ 20.990) | Entrada: R$ 3.000 PIX | CNH AB c/ EAR | CPF: 142.771.307-11 (05/03/1999).',
+              footer: '✅ Ficha expressa enviada pro vendedor!'
+            }
+          },
+          {
+            from: 'ai',
+            text: 'Fechado, Diego! ✅ Já acionei nosso vendedor aqui na **Cidão Motos Taquara** com prioridade máxima. Ele já está digitando seu CPF no banco e te chama em instantes!',
+            time: '10:07',
+            update: {}
+          }
+        ]
+      }
+    };
+
+    // PERGUNTAS EXTRAS AO VIVO (PARA CONTINUAR O DIÁLOGO NA REUNIÃO)
+    const quickQuestions = {
+      multa: {
+        q: 'E se a minha moto da troca tiver multa ou IPVA atrasado, vcs aceitam mesmo assim?',
+        a: 'Aceitamos sim! 🤝 Aqui na **Cidão Motos (Taquara)** nós pegamos sua moto como entrada **mesmo com débitos ou multas**. A gente abate apenas o valor dos débitos na avaliação e nossa própria equipe quita tudo. Você não precisa desembolsar nada antes!'
+      },
+      dois_cartoes: {
+        q: 'Posso somar o limite de 2 cartões diferentes para dar a entrada ou parcelar em 24x?',
+        a: 'Pode sim! 💳 Você pode somar **2 ou até 3 cartões diferentes** (inclusive de cônjuge ou familiar presente na loja) e parcelar em até **24x**, ou combinar uma parte no PIX + parte no cartão para diminuir a parcela do financiamento!'
+      },
+      garantia: {
+        q: 'Todas as motos seminovas têm garantia e são revisadas?',
+        a: 'Com certeza! 🛠️ Todas as motos do pátio da **Cidão Motos | Fábrica de Sonhos** passam por inspeção completa, têm procedência vistoriada, **garantia de loja** e várias já estão com **IPVA 2026 pago**!'
+      },
+      endereco: {
+        q: 'Qual o endereço certinho da loja aí na Taquara e horário de funcionamento?',
+        a: 'Ficamos na **Estrada Marechal Miguel Salazar Mendes de Morais, 321 — Taquara, Rio de Janeiro** (bem próximo ao restaurante Laço de Ouro)! 📍 Quer que eu já avise o vendedor que você está vindo?'
+      }
+    };
+
+    // 2. DADOS DO KANBAN (ABA 2)
+    const defaultLeads = [
+      {
+        id: 'k1',
+        nome: 'Gabriel Nascimento',
+        bairro: 'Taquara - RJ',
+        tel: '(21) 98112-4091',
+        moto: 'Honda CG 160 Start 2023',
+        preco: 'R$ 15.400',
+        mod: 'Financiamento 48x',
+        cpf: 'Coletando no WhatsApp...',
+        cnh: 'Não possui CNH',
+        entrada: 'R$ 4.000 (PIX)',
+        troca: 'Sem moto na troca',
+        temTroca: false,
+        filtro: 'financiamento',
+        col: 1,
+        sim48: '48x R$ 418',
+        sim36: '36x R$ 498',
+        sim24: '24x R$ 580',
+        notas: 'IA coletando CPF no WhatsApp. Cliente tem R$ 4.000 de entrada à vista.'
+      },
+      {
+        id: 'k2',
+        nome: 'Wallace Ribeiro',
+        bairro: 'Curicica - RJ',
+        tel: '(21) 99281-7732',
+        moto: 'Yamaha XMax 250 ABS 2022',
+        preco: 'R$ 26.900',
+        mod: 'Troca + Cartão 24x',
+        cpf: '119.442.817-02 • 04/07/1989',
+        cnh: 'Sim (Cat. AB)',
+        entrada: 'Troca + R$ 3.000',
+        troca: 'Entra: NMax 160 2020',
+        temTroca: true,
+        filtro: 'troca',
+        col: 1,
+        sim48: '48x R$ 390',
+        sim36: '36x R$ 465',
+        sim24: '24x R$ 540',
+        notas: 'Cliente enviando fotos da NMax 160 2020 pelo WhatsApp.'
+      },
+      {
+        id: 'k3',
+        nome: 'Rodrigo Azevedo',
+        bairro: 'Freguesia (JPA)',
+        tel: '(21) 99704-8821',
+        moto: 'Yamaha FZ25 Fazer ABS 2023',
+        preco: 'R$ 21.900',
+        mod: 'Moto na Troca + 36x',
+        cpf: '092.641.887-05 • 22/08/1991',
+        cnh: 'Sim (Cat. AB)',
+        entrada: 'Troca (~R$ 11.800)',
+        troca: 'Entra: Fan 160 2019',
+        temTroca: true,
+        filtro: 'troca',
+        col: 2,
+        sim48: '48x R$ 395',
+        sim36: '36x R$ 478',
+        sim24: '24x R$ 610',
+        notas: 'Dossiê 100% pronto pela IA! Fotos da Fan 160 2019 anexadas e CPF validado para simular nos bancos.'
+      },
+      {
+        id: 'k4',
+        nome: 'Lucas Martins',
+        bairro: 'Curicica / Taquara',
+        tel: '(21) 98412-5590',
+        moto: 'Honda CG 160 Titan 2023',
+        preco: 'R$ 17.900',
+        mod: 'Financiamento 48x',
+        cpf: '148.920.337-19 • 14/05/1996',
+        cnh: 'Sim (Cat. AB)',
+        entrada: 'R$ 3.500 (PIX + Cartão)',
+        troca: 'Sem moto na troca',
+        temTroca: false,
+        filtro: 'financiamento',
+        col: 2,
+        sim48: '48x R$ 529',
+        sim36: '36x R$ 635',
+        sim24: '24x R$ 720',
+        notas: 'CPF, nascimento, CNH AB e R$ 3.500 de entrada confirmados. Pronto para digitar na financeira.'
+      },
+      {
+        id: 'k5',
+        nome: 'Diogo Cavalcante',
+        bairro: 'Madureira - RJ',
+        tel: '(21) 98834-9012',
+        moto: 'Yamaha XTZ 250 Lander 2024',
+        preco: 'R$ 24.500',
+        mod: 'Troca + Financ. BV',
+        cpf: '102.774.917-33 • 15/04/1992',
+        cnh: 'Sim (Cat. AB)',
+        entrada: 'Troca + R$ 4.000',
+        troca: 'Entra: Bros 160 2018',
+        temTroca: true,
+        filtro: 'troca',
+        col: 3,
+        sim48: '48x R$ 385',
+        sim36: '36x R$ 460 (Aprovado)',
+        sim24: '24x R$ 590',
+        notas: 'Ficha aprovada no Banco BV! Agendado hoje às 16:30 na Estrada Marechal Miguel Salazar, 321 (Taquara).'
+      },
+      {
+        id: 'k6',
+        nome: 'Patrícia Guedes',
+        bairro: 'Pechincha (JPA)',
+        tel: '(21) 97601-2280',
+        moto: 'Honda PCX 160 2022',
+        preco: 'R$ 16.900',
+        mod: 'Cartão em 24x',
+        cpf: '154.889.207-90 • 12/10/1992',
+        cnh: 'Sim (Cat. A)',
+        entrada: 'R$ 4.900 + Cartão 24x',
+        troca: 'Sem moto na troca',
+        temTroca: false,
+        filtro: 'cartao',
+        col: 3,
+        sim48: 'Venda no Cartão',
+        sim36: 'Venda no Cartão',
+        sim24: '24x R$ 638 (Confirmado)',
+        notas: 'Agendada às 15:00 na loja da Taquara para passar R$ 4.900 no PIX e R$ 12.000 em 2 cartões.'
+      },
+      {
+        id: 'k7',
+        nome: 'Thiago Oliveira',
+        bairro: 'Taquara - RJ',
+        tel: '(21) 98301-7741',
+        moto: 'Procurava: Honda PCX 160 2022',
+        preco: 'Faixa R$ 16.900',
+        mod: 'Financiamento 48x',
+        cpf: '118.902.447-26 • 18/06/1993',
+        cnh: 'Sim (Cat. AB)',
+        entrada: 'R$ 2.500 (PIX)',
+        troca: 'Sem moto na troca',
+        temTroca: false,
+        filtro: 'financiamento',
+        col: 4,
+        sim48: '48x R$ 510',
+        sim36: '36x R$ 612',
+        sim24: '24x R$ 710',
+        notas: 'Queria PCX 160 2022 quando não tinha em estoque. Salvo automaticamente no Radar de Sonhos!'
+      },
+      {
+        id: 'k8',
+        nome: 'Vanessa Coutinho',
+        bairro: 'Freguesia (JPA)',
+        tel: '(21) 99612-3309',
+        moto: 'Procurava: PCX 160 / NMax',
+        preco: 'Faixa até R$ 17.500',
+        mod: 'Troca + Cartão 24x',
+        cpf: '136.410.887-09 • 21/02/1990',
+        cnh: 'Sim (Cat. A)',
+        entrada: 'R$ 2.800 (ou Troca)',
+        troca: 'Entra: Biz 110i 2017',
+        temTroca: true,
+        filtro: 'troca',
+        col: 4,
+        sim48: '48x R$ 340',
+        sim36: '36x R$ 410',
+        sim24: '24x R$ 490',
+        notas: 'Aguardando entrada de PCX 160 no pátio da Taquara. Pronta para disparo pelo Radar.'
+      }
+    ];
+
+    // 3. DADOS DO RADAR DE SONHOS (ABA 3)
+    const defaultRadarClients = [
+      { nome: 'Thiago Oliveira', bairro: 'Taquara - RJ', tel: '(21) 98301-7741', entrada: '2.500', nota: 'Buscava PCX 160 • CPF pré-aprovado + R$ 2.500 no PIX', match: '99% Match', sent: false },
+      { nome: 'Vanessa Coutinho', bairro: 'Freguesia (JPA)', tel: '(21) 99612-3309', entrada: '2.800', nota: 'Queria Scooter c/ Smart Key • R$ 2.800 ou Biz na troca', match: '97% Match', sent: false },
+      { nome: 'Leandro Batista', bairro: 'Praça Seca - RJ', tel: '(21) 97409-5122', entrada: '2.500', nota: 'Aprovado até R$ 17 mil c/ R$ 2.500 no cartão', match: '95% Match', sent: false },
+      { nome: 'Carlos Eduardo Moura', bairro: 'Curicica - RJ', tel: '(21) 96511-8904', entrada: '3.000', nota: 'Pediu alerta de automática p/ ir trabalhar na Barra', match: '93% Match', sent: false },
+      { nome: 'Fernanda Siqueira', bairro: 'Pechincha (JPA)', tel: '(21) 98744-1203', entrada: '2.500', nota: 'Entrada de R$ 2.500 + financiamento em 36x', match: '91% Match', sent: false }
+    ];
+
+    let leads = JSON.parse(JSON.stringify(defaultLeads));
+    let radarList = JSON.parse(JSON.stringify(defaultRadarClients));
+    let activeScenario = 'score_baixo';
+    let stepIdx = 0;
+    let stepTimer = null;
+    let kFilter = 'all';
+    let currentModalId = null;
+    let selectedRadarIdx = 0;
+
+    // NAVEGAÇÃO ENTRE ABAS
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('block');
+      });
+      document.getElementById(tabId).classList.remove('hidden');
+      document.getElementById(tabId).classList.add('block');
+
+      const map = {
+        'tab-simulador': 'nav-simulador',
+        'tab-kanban': 'nav-kanban',
+        'tab-radar': 'nav-radar'
+      };
+      Object.keys(map).forEach(k => {
+        const btn = document.getElementById(map[k]);
+        if (k === tabId) {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 bg-slate-900 text-amber-400 shadow-sm";
+        } else {
+          btn.className = "px-4 py-2 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 text-slate-600 hover:text-slate-900";
+        }
+      });
+      lucide.createIcons();
+    }
+
+    // SIMULADOR WHATSAPP (ABA 1)
+    function startScenario(key) {
+      if (stepTimer) clearTimeout(stepTimer);
+      activeScenario = key;
+      stepIdx = 0;
+
+      document.querySelectorAll('.scen-btn').forEach(btn => {
+        btn.className = "scen-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-700 hover:bg-slate-200";
+      });
+      const activeBtn = document.getElementById('scen-' + key);
+      if (activeBtn) {
+        activeBtn.className = "scen-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-900 text-amber-400 shadow-sm";
+      }
+
+      document.getElementById('wpp-messages').innerHTML = '';
+      document.getElementById('d-nome').textContent = '—';
+      document.getElementById('d-tel').textContent = '—';
+      document.getElementById('d-moto').textContent = '—';
+      document.getElementById('d-preco').textContent = '';
+      document.getElementById('d-mod').textContent = '—';
+      document.getElementById('d-entrada').textContent = 'Aguardando...';
+      document.getElementById('d-cpf').textContent = 'Aguardando...';
+      document.getElementById('d-cnh').textContent = 'Aguardando...';
+      document.getElementById('d-troca').textContent = '—';
+      document.getElementById('d-resumo').textContent = 'Acompanhando diálogo e extraindo informações...';
+      document.getElementById('d-score-val').textContent = '10%';
+      document.getElementById('d-score-bar').style.width = '10%';
+      document.getElementById('d-status-footer').textContent = 'Qualificando cliente ao vivo...';
+
+      playNextStep();
+    }
+
+    function flashBox(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('highlight-update');
+      void el.offsetWidth;
+      el.classList.add('highlight-update');
+    }
+
+    function applyStepUpdates(u) {
+      if (!u) return;
+      if (u.nome) { document.getElementById('d-nome').textContent = u.nome; flashBox('box-nome'); }
+      if (u.tel) { document.getElementById('d-tel').textContent = u.tel; flashBox('box-tel'); }
+      if (u.moto) { document.getElementById('d-moto').textContent = u.moto; flashBox('box-moto'); }
+      if (u.preco) { document.getElementById('d-preco').textContent = u.preco; }
+      if (u.mod) { document.getElementById('d-mod').textContent = u.mod; flashBox('box-mod'); }
+      if (u.entrada) { document.getElementById('d-entrada').textContent = u.entrada; flashBox('box-entrada'); }
+      if (u.cpf) { document.getElementById('d-cpf').textContent = u.cpf; flashBox('box-cpf'); }
+      if (u.cnh) { document.getElementById('d-cnh').textContent = u.cnh; flashBox('box-cnh'); }
+      if (u.troca) { document.getElementById('d-troca').textContent = u.troca; flashBox('box-troca'); }
+      if (u.resumo) { document.getElementById('d-resumo').textContent = u.resumo; }
+      if (u.score) {
+        document.getElementById('d-score-val').textContent = u.score + '%';
+        document.getElementById('d-score-bar').style.width = u.score + '%';
+      }
+      if (u.footer) {
+        document.getElementById('d-status-footer').textContent = u.footer;
+      }
+    }
+
+    function playNextStep() {
+      const scen = scenarios[activeScenario];
+      if (!scen || stepIdx >= scen.steps.length) {
+        document.getElementById('wpp-typing').classList.add('hidden');
+        return;
+      }
+
+      const step = scen.steps[stepIdx];
+      document.getElementById('wpp-step-pill').textContent = `Mensagem ${stepIdx + 1}/${scen.steps.length}`;
+
+      const typing = document.getElementById('wpp-typing');
+      typing.classList.remove('hidden');
+      document.getElementById('wpp-typing-label').textContent = step.from === 'ai' ? 'Assistente Cidão Motos digitando...' : 'Cliente digitando...';
+
+      stepTimer = setTimeout(() => {
+        typing.classList.add('hidden');
+        renderChatBubble(step);
+        applyStepUpdates(step.update);
+
+        stepIdx++;
+        if (stepIdx < scen.steps.length) {
+          stepTimer = setTimeout(playNextStep, 950);
+        }
+      }, 1150);
+    }
+
+    function skipToNextMessage() {
+      if (stepTimer) clearTimeout(stepTimer);
+      const scen = scenarios[activeScenario];
+      if (!scen || stepIdx >= scen.steps.length) return;
+
+      document.getElementById('wpp-typing').classList.add('hidden');
+      const step = scen.steps[stepIdx];
+      document.getElementById('wpp-step-pill').textContent = `Mensagem ${stepIdx + 1}/${scen.steps.length}`;
+      renderChatBubble(step);
+      applyStepUpdates(step.update);
+
+      stepIdx++;
+      if (stepIdx < scen.steps.length) {
+        stepTimer = setTimeout(playNextStep, 750);
+      }
+    }
+
+    function renderChatBubble(step) {
+      const box = document.getElementById('wpp-messages');
+      const isAI = step.from === 'ai';
+      const div = document.createElement('div');
+      div.className = `flex ${isAI ? 'justify-end' : 'justify-start'} animate-in`;
+
+      const photoHtml = step.photo ? `
+        <div class="mb-2 p-2.5 rounded-xl bg-emerald-900/10 border border-emerald-700/20 flex items-center gap-2.5">
+          <i data-lucide="camera" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+          <span class="text-[11px] font-semibold text-emerald-900">${step.photo}</span>
+        </div>
+      ` : '';
+
+      const formatted = step.text
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-950">$1</strong>')
+        .replace(/\n/g, '<br/>');
+
+      div.innerHTML = `
+        <div class="max-w-[82%] rounded-2xl px-4 py-2.5 text-xs leading-relaxed shadow-sm ${
+          isAI 
+            ? 'bg-[#D9FDD3] text-slate-900 rounded-tr-none border border-emerald-300/60' 
+            : 'bg-white text-slate-900 rounded-tl-none border border-slate-200/80'
+        }">
+          <span class="block text-[10px] font-bold mb-0.5 ${isAI ? 'text-emerald-800' : 'text-amber-700'}">
+            ${isAI ? 'Assistente IA Cidão Motos' : 'Cliente'}
+          </span>
+          ${photoHtml}
+          <p>${formatted}</p>
+          <div class="flex items-center justify-end gap-1 text-[10px] text-slate-400 mt-1">
+            <span>${step.time}</span>
+          </div>
+        </div>
+      `;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function triggerQuickQuestion(qKey) {
+      const item = quickQuestions[qKey];
+      if (!item) return;
+      renderChatBubble({ from: 'client', text: item.q, time: 'Agora' });
+      const typing = document.getElementById('wpp-typing');
+      typing.classList.remove('hidden');
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        renderChatBubble({ from: 'ai', text: item.a, time: 'Agora' });
+      }, 750);
+    }
+
+    function sendCustomChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('wpp-input');
+      const txt = input.value.trim();
+      if (!txt) return;
+      input.value = '';
+
+      renderChatBubble({ from: 'client', text: txt, time: 'Agora' });
+      const typing = document.getElementById('wpp-typing');
+      typing.classList.remove('hidden');
+
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        renderChatBubble({
+          from: 'ai',
+          text: 'Perfeito! Aqui na **Cidão Motos (Taquara)** financiamos em até **48x**, parcelamos no cartão em até **24x** e aceitamos sua **moto na troca** (mesmo com débitos!). Me confirma seu CPF e valor de entrada para simularmos agora!',
+          time: 'Agora'
+        });
+      }, 800);
+    }
+
+    function sendToKanban() {
+      const scen = scenarios[activeScenario];
+      if (scen && scen.lead) {
+        if (!leads.find(l => l.nome === scen.lead.nome)) {
+          leads.unshift(JSON.parse(JSON.stringify(scen.lead)));
+        }
+        renderKanban();
+        switchTab('tab-kanban');
+        notify(`Ficha de ${scen.lead.nome} destacada no Kanban!`);
+      }
+    }
+
+    // KANBAN (ABA 2)
+    function setKanbanFilter(f) {
+      kFilter = f;
+      ['all', 'troca', 'financiamento', 'cartao'].forEach(k => {
+        const btn = document.getElementById('kf-' + k);
+        btn.className = (k === f)
+          ? "kf-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-900 text-amber-400 transition"
+          : "kf-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition";
+      });
+      renderKanban();
+    }
+
+    function renderKanban() {
+      [1, 2, 3, 4].forEach(c => {
+        document.getElementById('kcol-' + c).innerHTML = '';
+      });
+      const counts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+
+      leads.filter(l => {
+        if (kFilter === 'all') return true;
+        if (kFilter === 'troca') return l.temTroca;
+        return l.filtro === kFilter;
+      }).forEach(l => {
+        counts[l.col]++;
+        const card = document.createElement('div');
+        card.className = "bg-white hover:border-amber-400 border border-slate-200 rounded-xl p-4 space-y-3 shadow-sm transition animate-in";
+
+        const trocaTag = l.temTroca
+          ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">🔄 ${l.troca}</span>`
+          : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-600">${l.mod}</span>`;
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h4 class="text-xs font-extrabold text-slate-900">${l.nome}</h4>
+              <p class="text-[11px] text-slate-500">${l.bairro}</p>
+            </div>
+            <span class="text-[11px] font-mono font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">${l.preco}</span>
+          </div>
+
+          <div>
+            <p class="text-xs font-bold text-slate-800">${l.moto}</p>
+            <div class="flex flex-wrap gap-1.5 mt-2">
+              <span class="px-2 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                Entrada: ${l.entrada}
+              </span>
+              ${trocaTag}
+            </div>
+          </div>
+
+          <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between">
+            <button onclick="openLeadModal('${l.id}')" class="text-xs font-bold text-slate-900 hover:text-amber-600 flex items-center gap-1 transition">
+              <span>Ver Ficha Completa</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        `;
+        document.getElementById('kcol-' + l.col).appendChild(card);
+      });
+
+      [1, 2, 3, 4].forEach(c => {
+        document.getElementById('kcount-' + c).textContent = counts[c];
+      });
+      lucide.createIcons();
+    }
+
+    function openLeadModal(id) {
+      const l = leads.find(x => x.id === id);
+      if (!l) return;
+      currentModalId = id;
+      document.getElementById('m-nome').textContent = l.nome;
+      document.getElementById('m-sub').textContent = `${l.bairro} • ${l.tel}`;
+      document.getElementById('m-moto').textContent = `${l.moto} (${l.preco})`;
+      document.getElementById('m-mod').textContent = l.mod;
+      document.getElementById('m-cpf').textContent = l.cpf;
+      document.getElementById('m-cnh').textContent = l.cnh;
+      document.getElementById('m-entrada').textContent = l.entrada;
+      document.getElementById('m-troca').textContent = l.troca;
+      document.getElementById('m-sim48').textContent = l.sim48;
+      document.getElementById('m-sim36').textContent = l.sim36;
+      document.getElementById('m-sim24').textContent = l.sim24;
+      document.getElementById('m-notas').textContent = l.notas;
+      document.getElementById('modal-lead').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeLeadModal() {
+      document.getElementById('modal-lead').classList.add('hidden');
+    }
+
+    function copyModalLead() {
+      const l = leads.find(x => x.id === currentModalId);
+      if (!l) return;
+      notify(`CPF e Ficha de ${l.nome} copiados para simulação no banco!`);
+    }
+
+    function advanceModalLead() {
+      const l = leads.find(x => x.id === currentModalId);
+      if (!l) return;
+      l.col = l.col < 4 ? l.col + 1 : 3;
+      renderKanban();
+      closeLeadModal();
+      notify(`${l.nome} avançou de etapa no Kanban!`);
+    }
+
+    // RADAR DE SONHOS (ABA 3)
+    function setRadarBike(modelo, preco, entrada) {
+      document.getElementById('r-modelo').value = modelo;
+      document.getElementById('r-preco').value = preco;
+      document.getElementById('r-entrada').value = entrada;
+      updateRadarPreview(selectedRadarIdx);
+    }
+
+    function updateRadarPreview(idx) {
+      selectedRadarIdx = idx;
+      const c = radarList[idx] || radarList[0];
+      const modelo = document.getElementById('r-modelo').value || 'Honda PCX 160 2022';
+      const entrada = document.getElementById('r-entrada').value || c.entrada;
+
+      document.getElementById('r-preview-msg').innerHTML = 
+        `"Fala <strong>${c.nome}</strong>! Acabou de entrar aqui na Cidão Motos da Taquara uma <strong>${modelo}</strong> que encaixa naquela sua entrada de R$ <strong>${entrada}</strong>. Quer ver o vídeo dela antes de ir pro Instagram?"`;
+      document.getElementById('r-bike-tag').textContent = modelo;
+      renderRadarList();
+    }
+
+    function renderRadarList() {
+      const box = document.getElementById('r-client-list');
+      box.innerHTML = '';
+      radarList.forEach((c, idx) => {
+        const active = idx === selectedRadarIdx;
+        const row = document.createElement('div');
+        row.onclick = () => updateRadarPreview(idx);
+        row.className = `cursor-pointer rounded-xl p-3.5 border transition flex items-center justify-between gap-4 ${
+          active ? 'bg-amber-50/70 border-amber-400 shadow-sm' : 'bg-slate-50 border-slate-200 hover:border-slate-300'
+        }`;
+
+        const badge = c.sent
+          ? `<span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-100 text-emerald-800">✓ Enviado no WhatsApp</span>`
+          : `<span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-amber-100 text-amber-900">${c.match}</span>`;
+
+        row.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold text-slate-900">${c.nome}</span>
+              <span class="text-[11px] text-slate-500">• ${c.bairro}</span>
+              <span class="text-[11px] font-mono font-semibold text-emerald-700">${c.tel}</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-0.5">${c.nota}</p>
+          </div>
+          <div class="shrink-0">${badge}</div>
+        `;
+        box.appendChild(row);
+      });
+    }
+
+    function runRadarMatch(e) {
+      e.preventDefault();
+      radarList.forEach(c => c.sent = false);
+      document.getElementById('r-live-reply').classList.add('hidden');
+      document.getElementById('btn-radar-send-label').textContent = 'Disparar Aviso Automático no WhatsApp dos 5 Clientes';
+
+      const load = document.getElementById('r-loading');
+      const res = document.getElementById('r-results');
+      res.classList.add('hidden');
+      load.classList.remove('hidden');
+
+      setTimeout(() => {
+        load.classList.add('hidden');
+        res.classList.remove('hidden');
+        updateRadarPreview(0);
+        notify('5 clientes compatíveis encontrados na lista de espera!');
+      }, 1000);
+    }
+
+    function dispatchRadarToAll() {
+      let i = 0;
+      const label = document.getElementById('btn-radar-send-label');
+      const timer = setInterval(() => {
+        if (i < radarList.length) {
+          radarList[i].sent = true;
+          updateRadarPreview(i);
+          label.textContent = `Disparando no WhatsApp (${i + 1}/5)...`;
+          i++;
+        } else {
+          clearInterval(timer);
+          label.textContent = '✓ Aviso Disparado para os 5 Clientes!';
+          document.getElementById('r-live-reply').classList.remove('hidden');
+          document.getElementById('kpi-radar').innerHTML = `5 <span class="text-sm font-bold text-red-600">(R$ 81.700)</span>`;
+          notify('Disparo concluído! Thiago Oliveira acabou de responder!');
+        }
+      }, 300);
+    }
+
+    // TOAST & RESET
+    let toastTimer = null;
+    function notify(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.remove('hidden');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.add('hidden'), 3500);
+    }
+
+    function resetDemo() {
+      leads = JSON.parse(JSON.stringify(defaultLeads));
+      radarList = JSON.parse(JSON.stringify(defaultRadarClients));
+      document.getElementById('kpi-radar').innerHTML = `4 <span class="text-sm font-bold text-red-600">(R$ 64.800)</span>`;
+      document.getElementById('r-live-reply').classList.add('hidden');
+      setRadarBike('Honda PCX 160 2022', '16.900', '2.500');
+      renderKanban();
+      renderRadarList();
+      startScenario('score_baixo');
+      switchTab('tab-simulador');
+      notify('Demonstração reiniciada!');
+    }
+
+    ['r-modelo', 'r-preco', 'r-entrada'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => updateRadarPreview(selectedRadarIdx));
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderKanban();
+      updateRadarPreview(0);
+      startScenario('score_baixo');
+    });
+  </script>
+</body>
+</html>
